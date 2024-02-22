@@ -9,18 +9,19 @@
 <body>
     <!--Header-->
     <div class="flex items-center border max-w-md mx-auto pt-8 pb-4 px-2">
-        <img src="/src/icon/arrow-back-simple-svgrepo-com.svg" alt="search" class="w-6 h-6 mx-2">
+        <a href="/public/index.html"><img src="/src/icon/arrow-back-simple-svgrepo-com.svg" alt="search" class="w-6 h-6 mx-2"></a>
         <h1 class="font-bold text-lg px-2">Costumize Order</h1>
     </div>
     <!--Order Detail-->
-    <div class="max-w-md mx-auto border py-2 px-2">
+    <div class="max-w-md mx-auto border py-3 px-2">
         <!--Order Detail - Product Name and Price-->
-        <div class="bg-slate-100 flex flex-row items-center">
-            <div class="px-2">
+        <div class="flex flex-row items-center">
+            <div class="grow px-2">
                 <p class="text-lg font-semibold">Matcha Latte</p>
             </div>
-            <div class="bg-slate-200 grow">
-                <p class="text-xs text-right font-medium">Rp 25.000</p>
+            <div class="inline-flex items-center py-1 pr-2">
+                <p class="text-sm font-medium">Rp </p>
+                <p id="itemPrice" class="text-sm font-medium pl-1">25000</p>
             </div> 
         </div>
         <!--Order Detail - Product - Variant Serve -->
@@ -31,14 +32,14 @@
             <div class="flex gap-2 items-center space-x-2 py-1">
                 <input type="radio" id="option1" name="menu" value="option1" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
                 <label for="option1" class="font-medium text-base text-gray-700 w-24">Ice</label>
-                <div class="grow bg-slate-100 rounded-md px-2">
+                <div class="grow bg-slate-100 rounded-md px-2 py-1">
                     <label for="option1-price" class="text-sm px-2">Rp. 0</label>
                 </div>
             </div>
             <div class="flex gap-2 items-center space-x-2 py-1">
                 <input type="radio" id="option2" name="menu" value="option2" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
                 <label for="option2" class="font-medium text-base text-gray-700 w-24">Hot</label>
-                <div class="grow bg-slate-100 rounded-md px-2">
+                <div class="grow bg-slate-100 rounded-md px-2 py-1">
                     <label for="option1-price" class="text-sm px-2">Rp. 0</label>
                 </div>
             </div>
@@ -51,25 +52,26 @@
             <div class="flex gap-2 items-center space-x-2 py-1">
                 <input type="radio" id="option1" name="menu" value="option1" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
                 <label for="option1" class="font-medium text-base text-gray-700 w-24">Normal</label>
-                <div class="grow bg-slate-100 rounded-md px-2">
+                <div class="grow bg-slate-100 rounded-md px-2 py-1">
                     <label for="option1-price" class="text-sm px-2">Rp. 0</label>
                 </div>
             </div>
             <div class="flex gap-2 items-center space-x-2 py-1">
                 <input type="radio" id="option2" name="menu" value="option2" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
                 <label for="option2" class="font-medium text-base text-gray-700 w-24">More Sugar</label>
-                <div class="grow bg-slate-100 rounded-md px-2">
-                    <label for="option1-price" class="text-sm px-2">Rp 1.000</label>
+                <div class="grow bg-slate-100 rounded-md px-2 py-1">
+                    <label for="option1-price" class="text-sm px-2">Rp 1000</label>
                 </div>
             </div>
             <div class="flex gap-2 items-center space-x-2 py-1">
                 <input type="radio" id="option2" name="menu" value="option2" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
                 <label for="option2" class="font-medium text-base text-gray-700 w-24">Less Sugar</label>
-                <div class="grow bg-slate-100 rounded-md px-2">
+                <div class="grow bg-slate-100 rounded-md px-2 py-1">
                     <label for="option1-price" class="text-sm px-2">Rp. 0</label>
                 </div>
             </div>
         </div>
+      <!-- *For Option Dropdown*
         <div class="relative">
             <select class="block appearance-none w-full bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
               <option>Option 1</option>
@@ -82,18 +84,111 @@
               </svg>
             </div>
         </div>
-        <div class="flex items-center">
-            <input type="checkbox" id="option1" name="option1" value="option1" class="h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500 focus:border-indigo-500">
-            <label for="option1" class="ml-2 block font-medium text-gray-700">Option 1</label>
-          </div>
-          <div class="flex items-center">
-            <input type="checkbox" id="option2" name="option2" value="option2" class="h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500 focus:border-indigo-500">
-            <label for="option2" class="ml-2 block font-medium text-gray-700">Option 2</label>
-          </div>
-          <div class="flex items-center">
-            <input type="checkbox" id="option3" name="option3" value="option3" class="h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500 focus:border-indigo-500">
-            <label for="option3" class="ml-2 block font-medium text-gray-700">Option 3</label>
-          </div>
+        -->
+        <!--Order Detail - Product - Variant Add On -->
+        <div class="px-2">
+            <div class="py-2">
+                <p class="text-base font-semibold">Add On</p>
+            </div>
+            <!--Option 1-->
+            <div class="flex gap-2 items-center space-x-2 py-1">
+                <div class="flex items-center gap-2">
+                    <input type="checkbox" id="optionSugarSyrup" name="optionSugarSyrup" value="optionSugarSyrup" class="h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500 focus:border-indigo-500">
+                    <label for="optionSugarSyrup" class="ml-2 block font-medium text-gray-700 w-24">Sugar Syrup</label>
+                </div>
+                <div class="grow bg-slate-100 rounded-md px-2 py-1">
+                    <label id="optionSugarSyrup-price" for="optionSugarSyrup-price" class="text-sm px-2">Rp 2000</label>
+                </div>
+            </div>
+            <!--Option 2-->
+            <div class="flex gap-2 items-center space-x-2 py-1">
+                <div class="flex items-center gap-2">
+                    <input type="checkbox" id="optionBobba" name="optionBobba" value="optionBobba" class="h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500 focus:border-indigo-500">
+                    <label for="optionBobba" class="ml-2 block font-medium text-gray-700 w-24">Bobba</label>
+                </div>
+                <div class="grow bg-slate-100 rounded-md px-2 py-1">
+                    <label id="optionBobba-price" for="optionBobba-price" class="text-sm px-2">Rp 3000</label>
+                </div>
+            </div>   
+            <!--Option 3-->
+            <div class="flex gap-2 items-center space-x-2 py-1">
+                <div class="flex items-center gap-2">
+                    <input type="checkbox" id="optionGrassJelly" name="optionGrassJelly" value="optionGrassJelly" class="h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500 focus:border-indigo-500">
+                    <label for="optionGrassJelly" class="ml-2 block font-medium text-gray-700 w-24">Grass Jelly</label>
+                </div>
+                <div class="grow bg-slate-100 rounded-md px-2 py-1">
+                    <label id="optionGrassJelly-price" for="optionGrassJelly-price" class="text-sm px-2">Rp 4000</label>
+                </div>
+            </div>  
+            <!--Option 4-->
+            <div class="flex gap-2 items-center space-x-2 py-1">
+                <div class="flex items-center gap-2">
+                    <input type="checkbox" id="optionMilk" name="optionMilk" value="optionMilk" class="h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500 focus:border-indigo-500">
+                    <label for="optionMilk" class="ml-2 block font-medium text-gray-700 w-24">Milk</label>
+                </div>
+                <div class="grow bg-slate-100 rounded-md px-2 py-1">
+                    <label id="optionMilk-price" for="optionMilk-price" class="text-sm px-2">Rp 3000</label>
+                </div>
+            </div>  
+            <!--Option 5-->
+            <div class="flex gap-2 items-center space-x-2 py-1">
+                <div class="flex items-center gap-2">
+                    <input type="checkbox" id="optionCheese" name="optionCheese" value="optionCheese" class="h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500 focus:border-indigo-500">
+                    <label for="optionCheese" class="ml-2 block font-medium text-gray-700 w-24">Cheese</label>
+                </div>
+                <div class="grow bg-slate-100 rounded-md px-2 py-1">
+                    <label id="optionCheese-price" for="optionCheese-price" class="text-sm px-2">Rp 5000</label>
+                </div>
+            </div>  
+        </div>
+        <!--Notes-->
+        <div class="py-2 mx-2">
+            <p class="text-base font-semibold">Notes</p>
+        </div>
+        <div class="bg-white border shadow-md rounded-md py-2 px-3 my-1 mx-2">
+            <textarea id="content" name="content" class="w-full h-32 border-gray-300 rounded-md focus:outline-none focus:border-blue-500 resize-none" placeholder="Ex: Add more..."></textarea>
+        </div>
     </div>
+    <!--Summary and Button Process--> 
+    <div class="max-w-md mx-auto border pt-4 pb-3 px-3">
+        <div class="flex gap-2">
+            <p class="font-medium text-base grow">Item Qty</p>
+            <button id="decrementButton" class="bg-blue-600 rounded-lg shadow text-white text-lg font-bold w-8 h-8">-</button>
+            <input id="quantityInput" type="text" value="1" class="w-20 border rounded-lg text-center">
+            <button id="incrementButton" class="bg-blue-600 rounded-lg text-white text-lg font-bold w-8 h-8">+</button>
+        </div>
+        <div class="bg-blue-600 rounded-lg py-2 my-2">
+            <p id="totalValue" class="text-center text-white text-lg">Add To Cart - Rp. 0 </p>
+        </div>
+    </div>
+    <!--Script for Qty Input and Button Process--> 
+    <script>
+        const decrementButton = document.getElementById('decrementButton');
+        const incrementButton = document.getElementById('incrementButton');
+        const quantityInput = document.getElementById('quantityInput');
+        const totalValue = document.getElementById('totalValue');
+        const itemPrice = document.getElementById('itemPrice');
+        
+
+        decrementButton.addEventListener('click', () => {
+            let currentValue = parseInt(quantityInput.value);
+            let currentPrice = parseInt(itemPrice.textContent);
+            let total = (currentValue - 1) * currentPrice;
+            if (currentValue > 1) {
+                quantityInput.value = currentValue - 1;
+                totalValue.textContent = `Add To Cart - Rp. ${total}`;
+            }
+            
+            
+        });
+
+        incrementButton.addEventListener('click', () => {
+            let currentValue = parseInt(quantityInput.value);
+            let currentPrice = parseInt(itemPrice.textContent);
+            let total = (1 + currentValue) * currentPrice;
+            quantityInput.value = currentValue + 1;
+            totalValue.textContent = `Add To Cart - Rp. ${total}`;
+        });
+    </script>
 </body>
 </html>
