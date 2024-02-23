@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>serenePOS-Menu</title>
     <link rel="stylesheet" href="./css/style.css">
+    <script src="/src/jquery.js"></script>
+    <script src="/src/script.js"></script>
 </head>
 <body>
     <!-- Header-->
     <div class="text-center py-5">
-        <h2 class="font-semibold text-base pt-8">Table A1</h2>
+        <h2 class="judul font-semibold text-base pt-8">Table A1</h2>
         <h3 class="font-medium text-sm pb-4">Serenity Outlet Bogor</h3>
        
     </div>
@@ -95,12 +97,18 @@
                     <div class="text-right">
                         <button class="bg-blue-700 text-sm text-white font-semibold py-1 px-2 rounded-lg shadow-md w-20 h-7">Add</button>
                     </div>
-                    
                 </div>
             </div>
         </div>
     </div>
     
-    
+    <div class="container mx-auto py-10 text-center">
+        <input type="text" id="counterInput" class="border border-gray-300 rounded-md px-3 py-2 text-center w-16" value="0" readonly>
+        <div class="mt-4">
+            <button id="incrementBtn" class="px-4 py-2 bg-blue-500 text-white rounded-md mr-2">Increment</button>
+            <button id="decrementBtn" class="px-4 py-2 bg-red-500 text-white rounded-md">Decrement</button>
+        </div>
+    </div>
+
 </body>
 </html>

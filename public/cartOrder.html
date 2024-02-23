@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart</title>
     <link rel="stylesheet" href="./css/style.css">
+    <script src="/src/jquery.js"></script>
+    <script src="/src/script.js"></script>
 </head>
 <body>
     <!--Header-->
@@ -15,7 +17,7 @@
     <!--Cart Item-->
     <div class="max-w-md mx-auto  py-3 p-2">
         <!--Cart Detail - Product 1 Detail-->
-        <div class="border rounded-lg p-2 my-1">
+        <div id="product1" class="border rounded-lg p-2 my-1">
             <div class="flex items-center">
                 <div class="grow">
                     <p class="font-semibold text-lg">Matcha latte</p>
@@ -43,7 +45,7 @@
             </div>
         </div>
         <!--Cart Detail - Product 2 Detail-->
-        <div class="border rounded-lg p-2 my-1">
+        <div id="product2" class="border rounded-lg p-2 my-1">
             <div class="flex items-center">
                 <div class="grow">
                     <p class="font-semibold text-lg">Matcha latte</p>
@@ -89,22 +91,39 @@
         <p class="text-white font-semibold text-lg text-center">Place Order</p>
     </div>
     
+    <!--
     <script>
         const decrementButtonOp1 = document.getElementById('decrementButtonOp1');
+        const decrementButtonOp2 = document.getElementById('decrementButtonOp2');
         const incrementButtonOp1 = document.getElementById('incrementButtonOp1');
+        const incrementButtonOp2 = document.getElementById('incrementButtonOp2');
         const quantityInputOp1 = document.getElementById('quantityInputOp1');
+        const quantityInputOp2 = document.getElementById('quantityInputOp2');
 
-        decrementButton.addEventListener('click', () => {
+        decrementButtonOp1.addEventListener('click', () => {
             let currentValueOp1 = parseInt(quantityInputOp1.value);            
             if (currentValueOp1 > 1) {
                 quantityInputOp1.value = currentValueOp1 - 1;
             }
         });
 
-        incrementButton.addEventListener('click', () => {
+        decrementButtonOp2.addEventListener('click', () => {
+            let currentValueOp2 = parseInt(quantityInputOp2.value);            
+            if (currentValueOp2 > 1) {
+                quantityInputOp2.value = currentValueOp2 - 1;
+            }
+        });
+
+        incrementButtonOp1.addEventListener('click', () => {
             let currentValueOp1 = parseInt(quantityInputOp1.value);
             quantityInputOp1.value = currentValueOp1 + 1;      
         });
+
+        incrementButtonOp2.addEventListener('click', () => {
+            let currentValueOp2 = parseInt(quantityInputOp2.value);
+            quantityInputOp2.value = currentValueOp2 + 1;      
+        });
     </script>
+    -->
 </body>
 </html>
