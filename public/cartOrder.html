@@ -9,7 +9,7 @@
 <body>
     <!--Header-->
     <div class="flex items-center border-b-2 max-w-md mx-auto pt-8 pb-4 px-2">
-        <a href="/public/index.html"><img src="/src/icon/arrow-back-simple-svgrepo-com.svg" alt="search" class="w-6 h-6 mx-2"></a>
+        <a href="/public/costumize-order.html"><img src="/src/icon/arrow-back-simple-svgrepo-com.svg" alt="search" class="w-6 h-6 mx-2"></a>
         <h1 class="font-bold text-lg px-2">Cart</h1>
     </div>
     <!--Cart Item-->
@@ -35,9 +35,9 @@
                         <p class="font-medium text-base">Add Notes</p>
                     </div>
                     <div class="grow text-right">
-                        <button id="decrementButton-1" class="bg-blue-600 rounded-lg shadow text-white text-lg font-bold w-8 h-8">-</button>
-                        <input id="quantityInput-1" type="text" value="1" class="w-20 h-8 border rounded-lg text-center">
-                        <button id="incrementButton-1" class="bg-blue-600 rounded-lg text-white text-lg font-bold w-8 h-8">+</button>
+                        <button id="decrementButtonOp1" class="bg-blue-600 rounded-lg shadow text-white text-lg font-bold w-8 h-8">-</button>
+                        <input id="quantityInputOp1" type="text" value="1" class="w-20 h-8 border rounded-lg text-center">
+                        <button id="incrementButtonOp1" class="bg-blue-600 rounded-lg text-white text-lg font-bold w-8 h-8">+</button>
                     </div>
                 </div>
             </div>
@@ -63,9 +63,9 @@
                         <p class="font-medium text-base">Add Notes</p>
                     </div>
                     <div class="grow text-right">
-                        <button id="decrementButton-1" class="bg-blue-600 rounded-lg shadow text-white text-lg font-bold w-8 h-8">-</button>
-                        <input id="quantityInput-1" type="text" value="1" class="w-20 h-8 border rounded-lg text-center">
-                        <button id="incrementButton-1" class="bg-blue-600 rounded-lg text-white text-lg font-bold w-8 h-8">+</button>
+                        <button id="decrementButtonOp2" class="bg-blue-600 rounded-lg shadow text-white text-lg font-bold w-8 h-8">-</button>
+                        <input id="quantityInputOp2" type="text" value="1" class="w-20 h-8 border rounded-lg text-center">
+                        <button id="incrementButtonOp2" class="bg-blue-600 rounded-lg text-white text-lg font-bold w-8 h-8">+</button>
                     </div>
                 </div>
             </div>
@@ -85,36 +85,25 @@
         </div>
     </div>
     <!--Button Place Order-->
-    <div id="openModalButton" class="bg-blue-600 max-w-md mx-auto mx-2 my-2 rounded-lg px-2 py-3 items-center">
+    <div id="openModalButton" class="bg-blue-600 max-w-md mx-auto my-2 rounded-lg px-2 py-3 items-center">
         <p class="text-white font-semibold text-lg text-center">Place Order</p>
-    </div>
-
-    <!-- Tombol untuk membuka modal 
-    <button id="openModalButton" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Open Modal</button>
-
-    -Modal -->
-    <div id="myModal" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
-        <div class="bg-white rounded-lg p-8">
-            <span id="closeModalButton" class="absolute top-0 right-0 p-2 h-10 w-10 cursor-pointer">&times;</span>
-            <p class="font-bold text-lg text-center py-2">Confirmation</p>
-            <p class="font-medium text-lg text-center py-1">Awesome! We've got your order</p>
-        </div>
     </div>
     
     <script>
-        // Ambil elemen-elemen yang diperlukan
-        const openModalButton = document.getElementById('openModalButton');
-        const closeModalButton = document.getElementById('closeModalButton');
-        const modal = document.getElementById('myModal');
+        const decrementButtonOp1 = document.getElementById('decrementButtonOp1');
+        const incrementButtonOp1 = document.getElementById('incrementButtonOp1');
+        const quantityInputOp1 = document.getElementById('quantityInputOp1');
 
-        // Tambahkan event listener untuk membuka modal
-        openModalButton.addEventListener('click', () => {
-            modal.classList.remove('hidden');
+        decrementButton.addEventListener('click', () => {
+            let currentValueOp1 = parseInt(quantityInputOp1.value);            
+            if (currentValueOp1 > 1) {
+                quantityInputOp1.value = currentValueOp1 - 1;
+            }
         });
 
-        // Tambahkan event listener untuk menutup modal
-        closeModalButton.addEventListener('click', () => {
-            modal.classList.add('hidden');
+        incrementButton.addEventListener('click', () => {
+            let currentValueOp1 = parseInt(quantityInputOp1.value);
+            quantityInputOp1.value = currentValueOp1 + 1;      
         });
     </script>
 </body>
