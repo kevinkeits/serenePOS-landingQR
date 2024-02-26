@@ -25,7 +25,7 @@
                     <p class="font-semibold text-base inline-flex">Sugar :</p><label id="Var-Sugar-Option" for="" class="text-base px-2">Normal</label><br>
                     <p class="font-semibold text-base inline-flex">Add On :</p><label id="Var-AddOn-Option" for="" class="text-base px-2">Milk</label><br>
                     <p class="font-semibold text-base inline-flex">Notes :</p><label id="Var-Notes-Option" for="" class="text-base px-2">Ice</label>
-                    <p class="font-semibold text-base">Rp. 30000</p>
+                    <p id="PriceP1" class="font-semibold text-base">30000</p>
                 </div>
                 <img src="/src/img/Matcha Latte.png" alt="Matcha Latte" class="w-20 h-20 rounded-md">
             </div>
@@ -53,7 +53,7 @@
                     <p class="font-semibold text-base inline-flex">Sugar :</p><label id="Var-Sugar-Option" for="" class="text-base px-2">Normal</label><br>
                     <p class="font-semibold text-base inline-flex">Add On :</p><label id="Var-AddOn-Option" for="" class="text-base px-2">Milk</label><br>
                     <p class="font-semibold text-base inline-flex">Notes :</p><label id="Var-Notes-Option" for="" class="text-base px-2">Ice</label>
-                    <p class="font-semibold text-base">Rp. 30000</p>
+                    <p id="PriceP2" class="font-semibold text-base">30000</p>
                 </div>
                 <img src="/src/img/KopiTubruk.jpg" alt="Matcha Latte" class="w-20 h-20 rounded-md">
             </div>
@@ -83,7 +83,7 @@
         <p class="font-bold text-lg py-2">Summary</p>
         <div class="border-t-2 flex py-2">
             <p class="font-bold text-lg grow">Total</p>
-            <p class="font-bold text-lg">Rp.28.000</p>
+            <p id="TotalCart" class="font-bold text-lg">Rp.28.000</p>
         </div>
     </div>
     <!--Button Place Order-->
@@ -91,39 +91,5 @@
         <p class="text-white font-semibold text-lg text-center">Place Order</p>
     </div>
     
-    <!--
-    <script>
-        const decrementButtonOp1 = document.getElementById('decrementButtonOp1');
-        const decrementButtonOp2 = document.getElementById('decrementButtonOp2');
-        const incrementButtonOp1 = document.getElementById('incrementButtonOp1');
-        const incrementButtonOp2 = document.getElementById('incrementButtonOp2');
-        const quantityInputOp1 = document.getElementById('quantityInputOp1');
-        const quantityInputOp2 = document.getElementById('quantityInputOp2');
-
-        decrementButtonOp1.addEventListener('click', () => {
-            let currentValueOp1 = parseInt(quantityInputOp1.value);            
-            if (currentValueOp1 > 1) {
-                quantityInputOp1.value = currentValueOp1 - 1;
-            }
-        });
-
-        decrementButtonOp2.addEventListener('click', () => {
-            let currentValueOp2 = parseInt(quantityInputOp2.value);            
-            if (currentValueOp2 > 1) {
-                quantityInputOp2.value = currentValueOp2 - 1;
-            }
-        });
-
-        incrementButtonOp1.addEventListener('click', () => {
-            let currentValueOp1 = parseInt(quantityInputOp1.value);
-            quantityInputOp1.value = currentValueOp1 + 1;      
-        });
-
-        incrementButtonOp2.addEventListener('click', () => {
-            let currentValueOp2 = parseInt(quantityInputOp2.value);
-            quantityInputOp2.value = currentValueOp2 + 1;      
-        });
-    </script>
-    -->
 </body>
 </html>

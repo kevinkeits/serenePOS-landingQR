@@ -18,125 +18,113 @@ $(function() {
             }
         });
 
+        $('#filterInput').on('input', function() {
+            var inputValue = $(this).val().toLowerCase();
+            $('.productMenu').filter(function() {
+                $('.categoryMenu').hide();
+                $(this).toggle($(this).text().toLowerCase().indexOf(inputValue) > -1); // Sembunyikan atau tampilkan item berdasarkan kesesuaian teks input
+              });
+        });
+
     // COSTUMIZE ORDER
-        //
-        $('input[name="serve"], input[name="sugar"], input[name="addOn"]').change(function() {
-            var total = 0;
+        // Mengambil nilai perubahan 
+        $('input.CozOrder').change(function() {
+            var totalOrder = 0;
             var value = parseInt($('#qtyInput').val());
             var itemPrice = parseInt($('#itemPrice').text());
-
-            $('input[name="addOn"]:checked').each(function() {
-                result += parseInt($(this).val());
-            });
-
-            var selectedOp1 = $('input[name="serve"]:checked').val();
-            if (selectedOp1) {
-                total += parseInt(selectedOp1);
-             }
-            var selectedOpVal1 = parseInt(selectedOp1);
-
-             var selectedOp2 = $('input[name="sugar"]:checked').val();
-             if (selectedOp2) {
-                 total += parseInt(selectedOp2);
-              }
-              var selectedOpVal2 = parseInt(selectedOp2);
             
+              $('input.CozOrder:checked').each(function() {
+                totalOrder +=parseInt($(this).val());
+                });
 
-             var grandTotalPrice = (value * itemPrice) + selectedOpVal1 + selectedOpVal2;
-             $('#totalValue').text('Hasil penjumlahan: ' + grandTotalPrice);
+             var grandTotalPrice = (value * itemPrice) + (totalOrder * value);
+             $('#totalValue').text(`Add To Cart - Rp. ` + grandTotalPrice);
          });
 
          // Increment Qty
         $('#incrementQty').on('click', function() {
             // Mendapatkan nilai dari input
             var value = parseInt($('#qtyInput').val());
-            // Menambahkan 1 ke nilai input
-            $('#qtyInput').val(value + 1);      
-        });
-
-        /*
-
-        // Variant 1 - Radio Button
-        $('input[name="serve"]').on('click', function() {
-            var selectedOp = $("input[name='serve']:checked").val();
-            var selectedOpVal = parseInt(selectedOp);
-            var value = parseInt($('#qtyInput').val());
             var itemPrice = parseInt($('#itemPrice').text());
-            var grandTotalPrice = (value * itemPrice) + selectedOpVal;
-            $('#totalValue').text(`Add To Cart - Rp. ` + grandTotalPrice);
-        });
-
-        // Variant 2 - Radio Button
-        $('input[name="sugar"]').on('click', function() {
-            var selectedOp = $("input[name='sugar']:checked").attr('value');
-            var selectedOpVal = parseInt(selectedOp);
-            var value = parseInt($('#qtyInput').val());
-            var itemPrice = parseInt($('#itemPrice').text());
-            var grandTotalPrice = (value * itemPrice) + selectedOpVal;
-            $('#totalValue').text(`Add To Cart - Rp. ` + grandTotalPrice);
-        });
-
-        // Variant 3 - Check Box
-        $('input[name="addOn"]').change(function() {
-            var result = 0;
-            var value = parseInt($('#qtyInput').val());
-            var itemPrice = parseInt($('#itemPrice').text());
-            $('input[name="addOn"]:checked').each(function() {
-                result += parseInt($(this).val());
+            var totalOrder = 0;
+            // Mengambil nilai dari kelas Input
+            $('input.CozOrder:checked').each(function() {
+                totalOrder +=parseInt($(this).val());
             });
-            var grandTotalPrice = (value * itemPrice) + result;
-            $('#totalValue').text(`Add To Cart - Rp. ` + grandTotalPrice);
+            var incrementVal = value + 1;
+            var totalPrice = incrementVal * (itemPrice + totalOrder);
+                // Menambahkan 1 ke nilai input
+                $('#qtyInput').val(incrementVal); 
+                $('#totalValue').text(`Add To Cart - Rp. ` + totalPrice.toLocaleString());  
         });
 
-        // Increment Qty
-        $('#incrementQty').on('click', function() {
-            // Mendapatkan nilai dari input
-            var value = parseInt($('#qtyInput').val());
-            // Menambahkan 1 ke nilai input
-            $('#qtyInput').val(value + 1);      
-        });
- */
         // Decrement Qty
         $('#decrementQty').on('click', function() {
             // Mendapatkan nilai dari input
             var value = parseInt($('#qtyInput').val());
             // Mendapatkan nilai harga item
             var itemPrice = parseInt($('#itemPrice').text());
+            var totalOrder = 0;
+            // Mengambil nilai dari kelas Input
+            $('input.CozOrder:checked').each(function() {
+                totalOrder +=parseInt($(this).val());
+            });
+
             // Mendapatkan nilai total harga item
-            var totalPrice = (value - 1) * itemPrice;
-            // Memastikan nilai tidak negatif
+            var decrementVal = value - 1;
+            var totalPrice = decrementVal * (itemPrice + totalOrder);
             if (value > 1) {
                 // Mengurangi 1 dari nilai input
-                $('#qtyInput').val(value - 1);
-                $('#totalValue').text(`Add To Cart - Rp. ` + totalPrice);
+                $('#qtyInput').val(decrementVal);
+                $('#totalValue').text(`Add To Cart - Rp. ` + totalPrice.toLocaleString());
             }
-            
         });
-   
 
     // CART ORDER
         // Product 1 
+            function countTotalCart() {
+                var priceP1 = parseInt($('#PriceP1').text()) || 0;
+                var PriceP2 = parseInt($('#PriceP2').text()) || 0;
+                var QtyP1 = parseInt($('#quantityInputOp1').val()) || 1;
+                var QtyP2 = parseInt($('#quantityInputOp2').val()) || 1;
+                var totalpriceP1 = priceP1 * QtyP1;
+                var totalpriceP2 = PriceP2 * QtyP2;
+                var totalCartOrder = totalpriceP1 + totalpriceP2;
+                $('#TotalCart').text(totalCartOrder.toLocaleString());
+            }
+
+            countTotalCart();
+            
+            $('#PriceP1, #PriceP2, #quantityInputOp1, #quantityInputOp2').on('input', function() {
+                countTotalCart(); // Memanggil fungsi hitungTotalCartOrder setiap kali terjadi perubahan
+            });
+           
+
             // Increment Qty
             $('#incrementButtonOp1').on('click', function() {
                 // Mendapatkan nilai dari input
                 var value = parseInt($('#quantityInputOp1').val());
+                var incrementVal = value + 1;
                 // Menambahkan 1 ke nilai input
-                $('#quantityInputOp1').val(value + 1);
+                $('#quantityInputOp1').val(incrementVal);
+                countTotalCart();
             });
 
             // Decrement Qty
             $('#decrementButtonOp1').on('click', function() {
                 // Mendapatkan nilai dari input
                 var value = parseInt($('#quantityInputOp1').val());
+                var decrementVal = value - 1;
                 // Memastikan nilai tidak negatif
                 if (value > 1) {
                     // Mengurangi 1 dari nilai input
-                    $('#quantityInputOp1').val(value - 1);
+                    $('#quantityInputOp1').val(decrementVal);
                 }
                 // Menghapus produk jika jumlahnya kurang dari 1
                 else {
                     $('#product1').remove();
                 }
+                countTotalCart();
             });
 
         // Product 2
@@ -146,6 +134,7 @@ $(function() {
                 var value = parseInt($('#quantityInputOp2').val());
                 // Menambahkan 1 ke nilai input
                 $('#quantityInputOp2').val(value + 1);
+                countTotalCart();
             });
 
             // Decrement Qty
@@ -161,6 +150,7 @@ $(function() {
                 else {
                     $('#product2').remove();
                 }
+                countTotalCart();
             });
         
 });
