@@ -26,6 +26,19 @@ $(function() {
               });
         });
 
+        // Modal Custom Order
+        // Buka modal saat tombol "Open Modal" diklik
+        $('.OpenCustomOrder').on('click', function() {
+            $('#modalCustomOrder').removeClass('hidden');
+            $('#mainPage').addClass('hidden');
+        });
+
+        // Tutup modal saat tombol close atau overlay diklik
+        $('.modal-close, .modal-overlay').on('click', function() {
+            $('#myModal').addClass('hidden');
+        });
+
+
     // COSTUMIZE ORDER
         // Mengambil nilai perubahan 
         $('input.CozOrder').change(function() {
