@@ -1,23 +1,7 @@
 $(function() {
 
     // INDEX.HTML
-        $('#incrementBtn').on('click', function() {
-            // Mendapatkan nilai dari input
-            var value = parseInt($('#counterInput').val());
-            // Menambahkan 1 ke nilai input
-            $('#counterInput').val(value + 1);
-        });
-
-        $('#decrementBtn').on('click', function() {
-            // Mendapatkan nilai dari input
-            var value = parseInt($('#counterInput').val());
-            // Memastikan nilai tidak negatif
-            if (value > 0) {
-                // Mengurangi 1 dari nilai input
-                $('#counterInput').val(value - 1);
-            }
-        });
-
+        
         $('#filterInput').on('input', function() {
             var inputValue = $(this).val().toLowerCase();
             $('.productMenu').filter(function() {
@@ -25,6 +9,16 @@ $(function() {
                 $(this).toggle($(this).text().toLowerCase().indexOf(inputValue) > -1); // Sembunyikan atau tampilkan item berdasarkan kesesuaian teks input
               });
         });
+
+        // Count Modal total Order
+        function countCuzOrder(){
+            var itemPrice = parseInt($('#itemPrice').text());
+            var value = parseInt($('#qtyInput').val());
+            TotalCuzPrice = itemPrice * value;
+            $('#totalValue').text(`Add To Cart - Rp. ` + TotalCuzPrice.toLocaleString());
+        };
+
+        countCuzOrder();
 
         // Modal Custom Order
         // Buka modal saat tombol "Open Modal" diklik
@@ -139,6 +133,19 @@ $(function() {
                     $('#product1').remove();
                 }
                 countTotalCart();
+            });
+
+            // Modal Custom Order
+            // Buka modal saat tombol "Open Modal" diklik
+            $('.addNotes').on('click', function() {
+                $('.modalAddNotes').removeClass('hidden');
+               
+            });
+
+            // Tutup modal saat tombol close atau overlay diklik
+            $('.saveNotes').on('click', function() {
+                
+                $('.modalAddNotes').addClass('hidden');
             });
 
         // Product 2
