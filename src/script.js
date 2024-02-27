@@ -152,11 +152,16 @@ $(function() {
                
             });
 
-            // Tutup modal saat tombol close atau overlay diklik
+            // Tutup modal saat tombol save diklik
             $('.saveNotes').on('click', function() {
-                
                 $('.modalAddNotes').addClass('hidden');
             });
+
+            // Tutup modal saat tombol cancel diklik
+            $('.cancelNotes').on('click', function() {
+                $('.modalAddNotes').addClass('hidden');
+            });
+            
 
         // Product 2
             // Increment Qty
