@@ -30,12 +30,13 @@ $(function() {
         // Buka modal saat tombol "Open Modal" diklik
         $('.OpenCustomOrder').on('click', function() {
             $('#modalCustomOrder').removeClass('hidden');
-            $('#mainPage').addClass('hidden');
+            $('.mainPage').addClass('hidden');
         });
 
         // Tutup modal saat tombol close atau overlay diklik
-        $('.modal-close, .modal-overlay').on('click', function() {
-            $('#myModal').addClass('hidden');
+        $('#CloseCustomOrder').on('click', function() {
+            $('.mainPage').removeClass('hidden');
+            $('#modalCustomOrder').addClass('hidden');
         });
 
 
