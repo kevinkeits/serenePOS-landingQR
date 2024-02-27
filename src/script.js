@@ -2,12 +2,17 @@ $(function() {
 
     // INDEX.HTML
         
+    // Filter Input
         $('#filterInput').on('input', function() {
             var inputValue = $(this).val().toLowerCase();
             $('.productMenu').filter(function() {
-                $('.categoryMenu').hide();
                 $(this).toggle($(this).text().toLowerCase().indexOf(inputValue) > -1); // Sembunyikan atau tampilkan item berdasarkan kesesuaian teks input
               });
+              if (inputValue === '') {
+                $('.categoryMenu').removeClass('hidden'); // Tampilkan kembali semua kategori jika input kosong
+                } else {
+                    $('.categoryMenu').addClass('hidden'); // Sembunyikan semua kategori jika input tidak kosong
+                }
         });
 
         // Count Modal total Order
@@ -88,8 +93,13 @@ $(function() {
             }
         });
 
-    // CART ORDER
+    // Modal CART ORDER
         // Product 1 
+            $('#totalValue').on('click', function() {
+                $('.cartOrder').removeClass('hidden');
+                $('#modalCustomOrder').addClass('hidden');
+            });
+
             function countTotalCart() {
                 var priceP1 = parseInt($('#PriceP1').text()) || 0;
                 var PriceP2 = parseInt($('#PriceP2').text()) || 0;
