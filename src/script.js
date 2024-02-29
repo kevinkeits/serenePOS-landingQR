@@ -1,6 +1,28 @@
 $(function() {
 
     // INDEX.HTML
+
+        // Get Table Name
+
+        function getTableName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+
+        var tableValue = getTableName('table');
+
+        // Mengupdate teks dalam elemen <h1> dengan nilai dari parameter 'table'
+        if (tableValue) {
+            $('#tableName').text('Table ' + tableValue);
+        } else {
+            $('#tableName').text('Page Title'); // Jika parameter 'table' tidak ditemukan, kembalikan teks awal
+        }
+
         
     // Filter Input
         $('#filterInput').on('input', function() {
