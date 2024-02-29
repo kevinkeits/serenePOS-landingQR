@@ -21,6 +21,8 @@ $(function() {
             $('#tableName').text('Table ' + tableValue);
         } else {
             $('#tableName').text('Page Title'); // Jika parameter 'table' tidak ditemukan, kembalikan teks awal
+            $('.mainPage').addClass('hidden');
+            $('.warningDiv').removeClass('hidden');
         }
 
         
