@@ -1,14 +1,11 @@
 import './App.css';
-import Cartpages from './pages/Cartpages';
-import Homepages from './pages/Homepages';
-import Orderpages from './pages/Orderpages';
+import Home from './pages/Home';
+
 
 function App() {
   return (
     <div className="App">
-      <Homepages/>
-      <Orderpages/>
-      <Cartpages/>
+      <Home/>
     </div>
   );
 }
