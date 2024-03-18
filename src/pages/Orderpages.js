@@ -1,9 +1,20 @@
 import React from 'react'
+import Header from '../components/Header'
+import ProductLabel from '../components/Productlabel'
+import ProductVariant from '../components/ProductVariant'
+import ProductNotes from '../components/ProductNotes'
+import ProductQty from '../components/ProductQty'
 
 const Orderpages = () => {
   return (
-    <div className='max-w-md mx-auto bg-yellow-100'>
-      Orderpages
+    <div className='max-w-md mx-auto '>
+      <Header />
+      <ProductLabel />
+      <ProductVariant />
+      <ProductVariant />
+      <ProductVariant />
+      <ProductNotes />
+      <ProductQty />
     </div>
   )
 }

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>serenePOS-Menu</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="/src/jquery.js"></script>
+    <script src="/src/script.js"></script>
+</head>
+<body>
+    
+    <div class="mainPage">
+        <!-- Header-->
+        <div class=" text-center py-5">
+            <h2 id="tableName" class="judul font-semibold text-base pt-8">Table A1</h2>
+            <h3 class="font-medium text-sm pb-4">Serenity Outlet Bogor</h3>
+        </div>
+        <!-- Search-->
+        <div class=" w-full max-w-md mx-auto py-2">
+            <div class="w-full flex items-center py-2 px-2 border border-gray-300 shadow-md rounded-lg focus:ring-indigo-200 focus:border-indigo-300 focus:ring focus:ring-opacity-50 ">
+            <input id="filterInput" type="text" class="pl-2 block w-full border-r-2" placeholder="Cari Disini...">
+            <img src="/src/icon/search-svgrepo-com.svg" alt="search" class="w-6 h-6 mx-2">
+            </div>
+        </div>
+        <!-- Menu-->
+        <div class=" py-2 max-w-md mx-auto">
+            <!-- Menu - Categories Non Coffee-->
+            <div class="my-2">
+                <div class="categoryMenu max-w-md mx-auto">
+                    <h1 class="font-bold py-2 px-2">Non Coffee</h1>
+                </div>
+                <!-- Menu - Categories Non Coffee - Menu Matcha Latte -->
+                <div class="productMenu flex mx-2 my-2 bg-white py-2 px-2 border rounded-lg shadow-md">
+                    <img src="/src/img/Matcha Latte.png" alt="Matcha Latte" class="w-20 h-20 rounded-md">
+                    <div class="mx-2 w-full">
+                        <p class="text-base font-semibold ">Matcha Latte</p>
+                        <p class="text-xs">Ice / Hot</p>
+                        <p class="text-xs font-medium">Rp 25.000</p>
+                        <div class="text-right">
+                        <button class="OpenCustomOrder bg-blue-700 text-sm text-white font-semibold py-1 px-2 rounded-lg shadow-md w-20 h-7">Add</button>
+                        </div>
+                        
+                    </div>
+                </div>
+                <!-- Menu - Categories Non Coffee - Menu Red Velvet Latte -->
+                <div class="productMenu flex mx-2 my-2 bg-white py-2 px-2 border rounded-lg shadow-md">
+                    <img src="/src/img/Red-Velvet-Latte.jpeg" alt="Red Velvet Latte" class="w-20 h-20 rounded-md">
+                    <div class="mx-2 w-full">
+                        <p class="text-base font-semibold ">Velvet Latte</p>
+                        <p class="text-xs">Ice / Hot</p>
+                        <p class="text-xs font-medium">Rp 28.000</p>
+                        <div class="text-right">
+                            <button class="OpenCustomOrder bg-blue-700 text-sm text-white font-semibold py-1 px-2 rounded-lg shadow-md w-20 h-7">Add</button>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <!-- Menu - Categories Coffee-->
+            <div class="my-2">
+                <div class="categoryMenu max-w-md mx-auto">
+                    <h1 class="font-bold py-2 px-2">Coffee</h1>
+                </div>
+                <!-- Menu - Categories Coffee - Menu Americano-->
+                <div class="productMenu flex mx-2 my-2 bg-white py-2 px-2 border rounded-lg shadow-md">
+                    <img src="/src/img/Americano.png" alt="Matcha Latte" class="w-20 h-20 rounded-md">
+                    <div class="mx-2 w-full">
+                        <p class="text-base font-semibold ">Americano</p>
+                        <p class="text-xs">Ice / Hot</p>
+                        <p class="text-xs font-medium">Rp 25.000</p>
+                        <div class="text-right">
+                            <button class="OpenCustomOrder bg-blue-700 text-sm text-white font-semibold py-1 px-2 rounded-lg shadow-md w-20 h-7">Add</button>
+                        </div>
+                        
+                    </div>
+                </div>
+                <!-- Menu - Categories Coffee - Menu Baileys Coffee-->
+                <div class="productMenu flex mx-2 my-2 bg-white py-2 px-2 border rounded-lg shadow-md">
+                    <img src="/src/img/Baileys-Coffee.png" alt="Baileys Coffee" class="w-20 h-20 rounded-md">
+                    <div class="mx-2 w-full">
+                        <p class="text-base font-semibold ">Baileys Coffee</p>
+                        <p class="text-xs">Ice</p>
+                        <p class="text-xs font-medium">Rp 30.000</p>
+                        <div class="text-right">
+                            <button class="OpenCustomOrder bg-blue-700 text-sm text-white font-semibold py-1 px-2 rounded-lg shadow-md w-20 h-7">Add</button>
+                        </div>
+                        
+                    </div>
+                </div>
+                <!-- Menu - Categories Coffee - Menu Cappucino-->
+                <div class="productMenu flex mx-2 my-2 bg-white py-2 px-2 border rounded-lg shadow-md">
+                    <img src="/src/img/Cappucino.png" alt="Cappucino" class="OpenCustomOrder w-20 h-20 rounded-md">
+                    <div class="mx-2 w-full">
+                        <p class="text-base font-semibold ">Cappucino</p>
+                        <p class="text-xs">Ice / Hot</p>
+                        <p class="text-xs font-medium">Rp 28.000</p>
+                        <div class="text-right">
+                            <button class="OpenCustomOrder bg-blue-700 text-sm text-white font-semibold py-1 px-2 rounded-lg shadow-md w-20 h-7">Add</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+
+    <!-- Apabila nama meja tidak ada -->
+    <div class="warningDiv hidden flex items-center max-w-md mx-auto h-screen">
+        <div class="bg-red-600 border rounded-lg mx-auto p-5">
+            <p class="text-white text-lg">Please Scan QR Code on the Table</p>
+        </div>
+    </div>
+
+    <!-- Modal - Choose Variant & Qty -->
+    <div id="modalCustomOrder" class="max-w-md mx-auto hidden">
+        <!--Header-->
+        <div class="flex items-center border-b-2 max-w-md mx-auto pt-8 pb-4 px-2">
+            <img id="CloseCustomOrder" src="/src/icon/arrow-back-simple-svgrepo-com.svg" alt="search" class="w-6 h-6 mx-2">
+            <h1 id="title" class="font-bold text-lg px-2">Costumize Order</h1>
+        </div>
+        <!--Order Detail-->
+        <div class="max-w-md mx-auto  py-3 px-2">
+            <!--Order Detail - Product Name and Price-->
+            <div class="flex flex-row items-center">
+                <div class="grow px-2">
+                    <p class="text-lg font-semibold">Matcha Latte</p>
+                </div>
+                <div class="inline-flex items-center py-1 pr-2">
+                    <p class="text-sm font-medium">Rp </p>
+                    <p id="itemPrice" class="text-sm font-medium pl-1">25000</p>
+                </div> 
+            </div>
+            <!--Order Detail - Product - Variant Serve -->
+            <div class="px-2">
+                <div class="py-2">
+                    <p class="text-base font-semibold">Serve</p>
+                </div>
+                <div class="flex gap-2 items-center space-x-2 py-1">
+                    <input type="radio" id="serve-ice" name="serve" value="0" class="CozOrder focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                    <label for="serve-ice" class="font-medium text-base text-gray-700 w-24">Ice</label>
+                    <div class="grow bg-slate-100 rounded-md px-2 py-1">
+                        <label for="serve-ice-price" class="text-sm px-2">Rp. 0</label>
+                    </div>
+                </div>
+                <div class="flex gap-2 items-center space-x-2 py-1">
+                    <input type="radio" id="serve-hot" name="serve" value="0" class="CozOrder focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                    <label for="serve-hot" class="font-medium text-base text-gray-700 w-24">Hot</label>
+                    <div class="grow bg-slate-100 rounded-md px-2 py-1">
+                        <label for="serve-hot-price" class="text-sm px-2">Rp. 0</label>
+                    </div>
+                </div>
+            </div>
+            <!--Order Detail - Product - Variant Sugar -->
+            <div class="px-2">
+                <div class="py-2">
+                    <p class="text-base font-semibold">Sugar</p>
+                </div>
+                <div class="flex gap-2 items-center space-x-2 py-1">
+                    <input type="radio" id="sugar-normal" name="sugar" value="0" class="CozOrder focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                    <label for="sugar-normal" class="font-medium text-base text-gray-700 w-24">Normal</label>
+                    <div class="grow bg-slate-100 rounded-md px-2 py-1">
+                        <label for="sugar-normal-price" class="text-sm px-2">Rp. 0</label>
+                    </div>
+                </div>
+                <div class="flex gap-2 items-center space-x-2 py-1">
+                    <input type="radio" id="sugar-moreSugar" name="sugar" value="1000" class="CozOrder focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                    <label for="sugar-moreSugar" class="font-medium text-base text-gray-700 w-24">More Sugar</label>
+                    <div class="grow bg-slate-100 rounded-md px-2 py-1">
+                        <label for="sugar-moreSugar-price" class="text-sm px-2">Rp 1000</label>
+                    </div>
+                </div>
+                <div class="flex gap-2 items-center space-x-2 py-1">
+                    <input type="radio" id="sugar-lessSugar" name="sugar" value="0" class="CozOrder focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                    <label for="sugar-lessSugar" class="font-medium text-base text-gray-700 w-24">Less Sugar</label>
+                    <div class="grow bg-slate-100 rounded-md px-2 py-1">
+                        <label for="sugar-lessSugar-price" class="text-sm px-2">Rp. 0</label>
+                    </div>
+                </div>
+            </div>
+
+            <!--Order Detail - Product - Variant Add On -->
+            <div class="px-2">
+                <div class="py-2">
+                    <p class="text-base font-semibold">Add On</p>
+                </div>
+                <!--Option 1-->
+                <div class="flex gap-2 items-center space-x-2 py-1">
+                    <div class="flex items-center gap-2">
+                        <input type="checkbox" id="optionSugarSyrup" name="addOn" value="2000" class="CozOrder h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500 focus:border-indigo-500">
+                        <label for="optionSugarSyrup" class="ml-2 block font-medium text-gray-700 w-24">Sugar Syrup</label>
+                    </div>
+                    <div class="grow bg-slate-100 rounded-md px-2 py-1">
+                        <label id="optionSugarSyrup-price" for="optionSugarSyrup-price" class="text-sm px-2">Rp 2000</label>
+                    </div>
+                </div>
+                <!--Option 2-->
+                <div class="flex gap-2 items-center space-x-2 py-1">
+                    <div class="flex items-center gap-2">
+                        <input type="checkbox" id="optionBobba" name="addOn" value="3000" class="CozOrder h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500 focus:border-indigo-500">
+                        <label for="optionBobba" class="ml-2 block font-medium text-gray-700 w-24">Bobba</label>
+                    </div>
+                    <div class="grow bg-slate-100 rounded-md px-2 py-1">
+                        <label id="optionBobba-price" for="optionBobba-price" class="text-sm px-2">Rp 3000</label>
+                    </div>
+                </div>   
+                <!--Option 3-->
+                <div class="flex gap-2 items-center space-x-2 py-1">
+                    <div class="flex items-center gap-2">
+                        <input type="checkbox" id="optionGrassJelly" name="addOn" value="4000" class="CozOrder h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500 focus:border-indigo-500">
+                        <label for="optionGrassJelly" class="ml-2 block font-medium text-gray-700 w-24">Grass Jelly</label>
+                    </div>
+                    <div class="grow bg-slate-100 rounded-md px-2 py-1">
+                        <label id="optionGrassJelly-price" for="optionGrassJelly-price" class="text-sm px-2">Rp 4000</label>
+                    </div>
+                </div>  
+                <!--Option 4-->
+                <div class="flex gap-2 items-center space-x-2 py-1">
+                    <div class="flex items-center gap-2">
+                        <input type="checkbox" id="optionMilk" name="addOn" value="3000" class="CozOrder h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500 focus:border-indigo-500">
+                        <label for="optionMilk" class="ml-2 block font-medium text-gray-700 w-24">Milk</label>
+                    </div>
+                    <div class="grow bg-slate-100 rounded-md px-2 py-1">
+                        <label id="optionMilk-price" for="optionMilk-price" class="text-sm px-2">Rp 3000</label>
+                    </div>
+                </div>  
+                <!--Option 5-->
+                <div class="flex gap-2 items-center space-x-2 py-1">
+                    <div class="flex items-center gap-2">
+                        <input type="checkbox" id="optionCheese" name="addOn" value="5000" class="CozOrder h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500 focus:border-indigo-500">
+                        <label for="optionCheese" class="ml-2 block font-medium text-gray-700 w-24">Cheese</label>
+                    </div>
+                    <div class="grow bg-slate-100 rounded-md px-2 py-1">
+                        <label id="optionCheese-price" for="optionCheese-price" class="text-sm px-2">Rp 5000</label>
+                    </div>
+                </div>  
+            </div>
+            <!--Notes-->
+            <div class="py-2 mx-2">
+                <p class="text-base font-semibold">Notes</p>
+            </div>
+            <div class="bg-white border shadow-md rounded-md py-2 px-3 my-1 mx-2">
+                <textarea id="content" name="content" class="w-full h-32 border-gray-300 rounded-md focus:outline-none focus:border-blue-500 resize-none" placeholder="Ex: Add more..."></textarea>
+            </div>
+        </div>
+        <!--Summary and Button Process--> 
+        <div class="max-w-md mx-auto border-t-2 pt-4 pb-3 px-3">
+            <div class="flex gap-2">
+                <p class="font-medium text-base grow">Item Qty</p>
+                <button id="decrementQty" class="bg-blue-600 rounded-lg shadow text-white text-lg font-bold w-8 h-8">-</button>
+                <input id="qtyInput" type="text" value="1" class="w-20 border rounded-lg text-center">
+                <button id="incrementQty" class="bg-blue-600 rounded-lg text-white text-lg font-bold w-8 h-8">+</button>
+            </div>
+            <div class="bg-blue-600 rounded-lg py-2 my-2 hover:cursor-pointer">
+                <p id="totalValue" class="text-center text-white text-lg">Add To Cart - Rp -</p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal Cart Order-->
+    <!--Header-->
+    <div class="relative max-w-md mx-auto cartOrder hidden">
+        <div class="flex items-center border-b-2 max-w-md mx-auto pt-8 pb-4 px-2">
+            <a href="/public/index.html"><img src="/src/icon/arrow-back-simple-svgrepo-com.svg" alt="search" class="w-6 h-6 mx-2"></a>
+            <h1 class="font-bold text-lg px-2">Cart</h1>
+        </div>
+        <!--Cart Item-->
+        <div class="max-w-md mx-auto  py-3 p-2">
+            <!--Cart Detail - Product 1 Detail-->
+            <div id="product1" class="border rounded-lg p-2 my-1">
+                <div class="flex items-center">
+                    <div class="grow">
+                        <p class="font-semibold text-lg">Matcha latte</p>
+                        <p class="font-semibold text-base inline-flex">Serve :</p><label id="Var-Serve-Option" for="" class="text-base px-2">Ice</label><br>
+                        <p class="font-semibold text-base inline-flex">Sugar :</p><label id="Var-Sugar-Option" for="" class="text-base px-2">Normal</label><br>
+                        <p class="font-semibold text-base inline-flex">Add On :</p><label id="Var-AddOn-Option" for="" class="text-base px-2">Milk</label><br>
+                        <p class="font-semibold text-base inline-flex">Notes :</p><label id="Var-Notes-Option" for="" class="text-base px-2">Ice</label>
+                        <p id="PriceP1" class="font-semibold text-base">30000</p>
+                    </div>
+                    <img src="/src/img/Matcha Latte.png" alt="Matcha Latte" class="w-20 h-20 rounded-md">
+                </div>
+                <!--Notes and Counting item--> 
+                <div class="max-w-md mx-auto pt-2 pb-2 px-">
+                    <div class="flex items-center">
+                        <div class="addNotes inline-flex border rounded-lg hover:cursor-pointer py-2 px-2 shadow-md">
+                            <img src="/src/icon/note-text-svgrepo-com.svg" alt="search" class="w-6 h-6 mr-2">
+                            <p class="font-medium text-base">Add Notes</p>
+                        </div>
+                        <div class="grow text-right">
+                            <button id="decrementButtonOp1" class="bg-blue-600 rounded-lg shadow text-white text-lg font-bold w-8 h-8">-</button>
+                            <input id="quantityInputOp1" type="text" value="1" class="w-20 h-8 border rounded-lg text-center">
+                            <button id="incrementButtonOp1" class="bg-blue-600 rounded-lg text-white text-lg font-bold w-8 h-8">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Cart Detail - Product 2 Detail-->
+            <div id="product2" class="border rounded-lg p-2 my-1 bg-blend-darken">
+                <div class="flex items-center">
+                    <div class="grow">
+                        <p class="font-semibold text-lg">Matcha latte</p>
+                        <p class="font-semibold text-base inline-flex">Serve :</p><label id="Var-Serve-Option" for="" class="text-base px-2">Ice</label><br>
+                        <p class="font-semibold text-base inline-flex">Sugar :</p><label id="Var-Sugar-Option" for="" class="text-base px-2">Normal</label><br>
+                        <p class="font-semibold text-base inline-flex">Add On :</p><label id="Var-AddOn-Option" for="" class="text-base px-2">Milk</label><br>
+                        <p class="font-semibold text-base inline-flex">Notes :</p><label id="Var-Notes-Option" for="" class="text-base px-2">Ice</label>
+                        <p id="PriceP2" class="font-semibold text-base">30000</p>
+                    </div>
+                    <img src="/src/img/KopiTubruk.jpg" alt="Matcha Latte" class="w-20 h-20 rounded-md">
+                </div>
+                <!--Notes and Counting item--> 
+                <div class="max-w-md mx-auto pt-2 pb-2 px-">
+                    <div class="flex items-center">
+                        <div class="addNotes inline-flex border rounded-lg hover:cursor-pointer py-2 px-2 shadow-md">
+                            <img src="/src/icon/note-text-svgrepo-com.svg" alt="search" class="w-6 h-6 mr-2">
+                            <p class="font-medium text-base">Add Notes</p>
+                        </div>
+                        <div class="grow text-right">
+                            <button id="decrementButtonOp2" class="bg-blue-600 rounded-lg shadow text-white text-lg font-bold w-8 h-8">-</button>
+                            <input id="quantityInputOp2" type="text" value="1" class="w-20 h-8 border rounded-lg text-center">
+                            <button id="incrementButtonOp2" class="bg-blue-600 rounded-lg text-white text-lg font-bold w-8 h-8">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!--Question-->
+        <div class="max-w-md mx-auto flex items-center my-2 px-2">
+            <p class="grow font-medium text-base">Need Anything Else?</p>
+            <p class="border py-2 px-2 rounded-lg shadow-md mx-2 text-base">Add More</p>
+        </div>
+        <!--Summary and Total-->
+        <div class="border max-w-md mx-auto px-2 mx-2 mt-3 mb-4 rounded-lg">
+            <p class="font-bold text-lg py-2">Summary</p>
+            <div class="border-t-2 flex py-2">
+                <p class="font-bold text-lg grow">Total</p>
+                <p id="TotalCart" class="font-bold text-lg">Rp.28.000</p>
+            </div>
+        </div>
+        <!--Button Place Order-->
+        <div id="openModalButton" class="bg-blue-600 max-w-md mx-auto my-2 rounded-lg px-2 py-3 items-center">
+            <p class="text-white font-semibold text-lg text-center">Place Order</p>
+        </div>
+        
+        <!-- Modal Add Notes -->
+        <div class="modalAddNotes sticky bg-white bottom-0 w-full border rounded-lg mb-2 shadow-lg hidden">
+            <div class="py-2 mx-2">
+                <p class="text-base font-semibold">Notes</p>
+            </div>
+            <div class="bg-white border shadow-md rounded-md py-2 px-3 my-1 mx-2">
+                <textarea id="content" name="content" class="w-full h-32 border-gray-300 rounded-md focus:outline-none focus:border-blue-500 resize-none" placeholder="Ex: Add more..."></textarea>
+            </div>
+            <div class="flex my-2 mx-2 items-center">
+                <p class="text-slate-200 grow">0/200</p>
+                <button class="cancelNotes bg-white border rounded-lg shadow-lg text-black text-base p-2 w-20 mx-1">Cancel</button>
+                <button class="saveNotes border rounded-lg bg-green-600 shadow-lg text-white text-base font-medium p-2 w-20 mx-1">Save</button>
+            </div>
+        </div>
+    
+        </div>
+    
+
+</body>
+</html>
