@@ -1,9 +1,14 @@
 import './App.css';
+import Cartpages from './pages/Cartpages';
+import Homepages from './pages/Homepages';
+import Orderpages from './pages/Orderpages';
 
 function App() {
   return (
     <div className="App">
-      Hello
+      <Homepages/>
+      <Orderpages/>
+      <Cartpages/>
     </div>
   );
 }
