@@ -4,7 +4,7 @@ import Productimage from '../elements/Productimage'
 
 const Product = () => {
   return (
-    <div className='flex'>
+    <div className='productMenu flex mx-2 my-2 bg-white py-2 px-2 border rounded-lg shadow-md'>
       <Productimage/>
       <div className='mx-2 w-full'>
       <p className='text-base font-semibold '>Matcha Latte</p>
