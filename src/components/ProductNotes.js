@@ -2,7 +2,7 @@ import React from 'react'
 
 const ProductNotes = () => {
   return (
-    <div class="px-2 m-2">
+    <div class="px-2 m-2 py-2">
        <div class="py-2 mx-2">
             <p class="text-base font-semibold">Notes</p>
         </div>
