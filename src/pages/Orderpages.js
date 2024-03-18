@@ -2,7 +2,7 @@ import React from 'react'
 
 const Orderpages = () => {
   return (
-    <div>
+    <div className='max-w-md mx-auto bg-yellow-100'>
       Orderpages
     </div>
   )
