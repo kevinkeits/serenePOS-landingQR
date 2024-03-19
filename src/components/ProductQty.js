@@ -1,5 +1,4 @@
-<<<<<<< Updated upstream
-=======
+
 import React, { useState } from 'react'
 
 
@@ -38,4 +37,4 @@ const ProductQty = ({addtocart, value, onChange}) => {
 }
 
 export default ProductQty
->>>>>>> Stashed changes
+
