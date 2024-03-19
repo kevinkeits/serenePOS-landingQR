@@ -27,10 +27,13 @@ const Orderpages = () => {
     <div className='max-w-md mx-auto h-screen'>
      {showOrderPages && (
       <div>
-        <Header backtoHome={backtoHome} label={'Costumize Order'} />
+        <Header backtoHome={backtoHome} label={'Customize Order'} />
         <ProductLabel ProductPrice={'25000'}/>
-        <ProductVariant VariantType={'Serve'}/>
-        <ProductVariant VariantType={'Ice'}/>
+        <ProductVariant
+          VariantType={['Serve', 'Sugar', 'Add On']}
+          VariantLabel={[['Ice', 'Hot'], ['Normal', 'Less Sugar', 'More Sugar'], ['Sugar Syrup', 'Bobba', 'Grass Jelly', 'Milk', 'Cheese']]}
+          VariantPrice={[['0', '0'], ['0', '1000', '0'], ['2000', '3000', '4000', '5000', '6000']]}
+        />
         <ProductNotes />
         <ProductQty addtocart={AddToCart} />
       </div>
