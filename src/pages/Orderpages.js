@@ -4,7 +4,6 @@ import ProductVariant from '../components/ProductVariant'
 import ProductNotes from '../components/ProductNotes'
 import ProductQty from '../components/ProductQty'
 import Header from '../components/Header'
-import Product from '../components/Product'
 import Cartpages from './Cartpages'
 import Homepages from './Homepages'
 
@@ -19,6 +18,11 @@ const Orderpages = () => {
     setShowCartPages(false)
   }
 
+  const AddToCart = () => {
+    setShowOrderPages(false)
+    setShowCartPages(true)
+  }
+
   return (
     <div className='max-w-md mx-auto h-screen'>
      {showOrderPages && (
@@ -28,7 +32,7 @@ const Orderpages = () => {
         <ProductVariant />
         <ProductVariant />
         <ProductNotes />
-        <ProductQty />
+        <ProductQty addtocart={AddToCart} />
       </div>
   )}
   {showProductPages && (<Homepages  />)}
