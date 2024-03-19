@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 
 const ProductQty = ({addtocart, value, onChange}) => {
   const [qty, setQty] = useState(value || 1);
+  
   const incrementQty = () => {
     setQty(qty + 1);
     onChange(qty + 1);
@@ -29,7 +30,7 @@ const ProductQty = ({addtocart, value, onChange}) => {
       <div class="bg-blue-600 rounded-lg py-1 my-2 hover:cursor-pointer shadow-md">
         <div onClick={addtocart} class="bg-blue-600 rounded-lg my-2 hover:cursor-pointer flex items-start justify-center gap-2">
             <p class="text-center text-white text-lg">Add To Cart -</p>
-            <p id="totalValue" class="text-center text-white text-lg">Rp. 25.000</p>
+            <p id="totalValue" class="text-center text-white text-lg">Rp. {qty * 25000}</p>
         </div>
     </div>
     </div>
