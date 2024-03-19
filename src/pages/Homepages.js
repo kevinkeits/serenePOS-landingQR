@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState,  } from 'react'
 
 import Title from '../components/Title'
 import Search from '../components/Search'
@@ -14,11 +14,7 @@ const Homepages = () => {
   const openPages = () => {
     setShowOrderPages(true)
     setShowProductPages(false)
-  }
-
-  const closePages = () => {
-    setShowOrderPages(false)
-    setShowProductPages(true)
+    setShowCartPages(false)
   }
 
   return (

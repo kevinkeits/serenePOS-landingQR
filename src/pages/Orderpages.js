@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState,  } from 'react'
 import ProductLabel from '../components/Productlabel'
 import ProductVariant from '../components/ProductVariant'
 import ProductNotes from '../components/ProductNotes'
@@ -27,7 +27,7 @@ const Orderpages = () => {
     <div className='max-w-md mx-auto h-screen'>
      {showOrderPages && (
       <div>
-        <Header backtoHome={backtoHome} label={'Home'} />
+        <Header backtoHome={backtoHome} label={'Costumize Order'} />
         <ProductLabel />
         <ProductVariant />
         <ProductVariant />
