@@ -31,10 +31,10 @@ const Homepages = () => {
         <Search/>
         <div className='my-2'>
           <div className='categoryMenu max-w-md mx-auto'>
-              <p className='font-bold py-2 px-2'> Non Coffee <button onClick={openPages} className='OpenCustomOrder bg-blue-700 text-sm text-white font-semibold py-1 px-2 rounded-lg shadow-md w-20 h-7'>Add</button></p>
+              <p className='font-bold py-2 px-2'> Non Coffee</p>
 
-              <Product addToCart={openPages} itemName={'Matcha Latte'} itemDescription={'Hot/Cold'} itemPrice={'Rp 28,000'} />
-              <Product addToCart={openPages} itemName={'Red Velvet Latte'} itemDescription={'Hot/Cold'} itemPrice={'Rp 28,000'}/>
+              <Product custmOrder={openPages} itemName={'Matcha Latte'} itemDescription={'Hot/Cold'} itemPrice={'Rp 28,000'} />
+              <Product custmOrder={openPages} itemName={'Red Velvet Latte'} itemDescription={'Hot/Cold'} itemPrice={'Rp 28,000'}/>
           </div>
         </div>
       </div>
