@@ -1,10 +1,10 @@
 import React from 'react'
 
-const ProductVariant = () => {
+const ProductVariant = ({VariantType}) => {
   return (
     <div class="px-2 m-2">
         <div class="py-2">
-            <p class="text-base font-semibold">Serve</p>
+            <p class="text-base font-semibold">{VariantType}</p>
         </div>
         <div class="flex gap-2 items-center space-x-2 py-1">
             <input type="radio" id="serve-ice" name="serve" value="0" class="CozOrder focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"></input>

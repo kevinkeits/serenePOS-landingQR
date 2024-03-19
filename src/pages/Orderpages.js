@@ -28,9 +28,9 @@ const Orderpages = () => {
      {showOrderPages && (
       <div>
         <Header backtoHome={backtoHome} label={'Costumize Order'} />
-        <ProductLabel />
-        <ProductVariant />
-        <ProductVariant />
+        <ProductLabel ProductPrice={'25000'}/>
+        <ProductVariant VariantType={'Serve'}/>
+        <ProductVariant VariantType={'Ice'}/>
         <ProductNotes />
         <ProductQty addtocart={AddToCart} />
       </div>

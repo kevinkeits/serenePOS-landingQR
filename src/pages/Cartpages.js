@@ -1,6 +1,5 @@
 import React, { useState,  } from 'react'
 import Orderdetail from '../components/Orderdetail'
-import ArrowBack from '../assets/Icon/arrow-back-simple-svgrepo-com.svg'
 import Homepages from './Homepages'
 import Header from '../components/Header'
 
@@ -43,7 +42,7 @@ const Cartpages = () => {
           <p font-medium text-base>Need Anything else?</p>
           <button className='border py-2 px-2 rounded-lg shadow-md mx-2 text-base'>Add More</button>
         </div>
-        <div className='border max-w-md mx-auto px-2 mx-2 mt-3 mb-4 rounded-lg'>
+        <div className='border max-w-md mx-auto px-2 mt-3 mb-4 rounded-lg'>
           <p className='font-bold text-lg py-2'>Summary</p>
           <div className='border-t-2 flex py-2'>
             <p className='font-bold text-lg grow'>Total</p>
