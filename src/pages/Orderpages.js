@@ -11,7 +11,7 @@ const Orderpages = () => {
   const [showProductPages, setShowProductPages] = useState(false);
   const [showOrderPages, setShowOrderPages] = useState(true);
   const [showCartPages, setShowCartPages] = useState(false);
-  const [qty, setQty] = useState(0);
+  const [qty, setQty] = useState(1);
 
   const updateQty = newQty => {
     setQty(newQty);
