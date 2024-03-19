@@ -27,6 +27,14 @@ const Homepages = () => {
           <div className='categoryMenu max-w-md mx-auto'>
               <p className='font-bold py-2 px-2'> Non Coffee</p>
               <Product customOrder={openPages} itemName={'Matcha Latte'} itemDescription={'Hot/Cold'} itemPrice={'Rp 28,000'} />
+              <Product customOrder={openPages} itemName={'Velvet Latte'} itemDescription={'Hot/Cold'} itemPrice={'Rp 28,000'} />
+          </div>
+        </div>
+        <div className='my-2'>
+          <div className='categoryMenu max-w-md mx-auto'>
+              <p className='font-bold py-2 px-2'> Coffee</p>
+              <Product customOrder={openPages} itemName={'Americano'} itemDescription={'Hot/Cold'} itemPrice={'Rp 20,000'} />
+              <Product customOrder={openPages} itemName={'Cappucino'} itemDescription={'Hot/Cold'} itemPrice={'Rp 20,000'} />
           </div>
         </div>
       </div>
