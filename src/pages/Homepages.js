@@ -23,6 +23,14 @@ const Homepages = () => {
     setShowProductPages(true)
   }
 
+  const backtoHome = () => {
+    setShowProductPages(false)
+    setShowProductPages(true)
+    showCartPages(false)
+  }
+
+
+
   return (
     <div className='max-w-md mx-auto h-screen'>
     {showProductPages && (
