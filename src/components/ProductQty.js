@@ -1,14 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 
-const ProductQty = ({addtocart}) => {
+const ProductQty = ({addtocart, value, onChange}) => {
+  const [qty, setQty] = useState(value || 0);
+  const incrementQty = () => {
+    setQty(qty + 1);
+    onChange(qty + 1);
+  };
+
+  // Fungsi untuk mengurangi kuantity
+  const decrementQty = () => {
+    if (qty > 0) {
+      setQty(qty - 1);
+      onChange(qty - 1);
+    }
+  };
+
   return (
     <div class="max-w-md mx-auto border-t-2 pt-4 pb-3 px-3">
       <div class="flex gap-2">
           <p class="font-medium text-base grow">Item Qty</p>
-          <button id="decrementQty" class="bg-blue-600 rounded-lg shadow text-white text-lg font-bold w-8 h-8">-</button>
-          <input id="qtyInput" type="text" value="1" class="w-20 border rounded-lg text-center"></input>
-          <button id="incrementQty" class="bg-blue-600 rounded-lg text-white text-lg font-bold w-8 h-8">+</button>
+          <button id="" onClick={decrementQty} class="bg-blue-600 rounded-lg shadow text-white text-lg font-bold w-8 h-8">-</button>
+          <input id="" type="number" value={qty} onChange={e => setQty(parseInt(e.target.value))} class="w-20 border rounded-lg text-center"></input>
+          <button id="" onClick={incrementQty} class="bg-blue-600 rounded-lg text-white text-lg font-bold w-8 h-8">+</button>
       </div>  
       {/* Button Add To Cart */}
       <div class="bg-blue-600 rounded-lg py-1 my-2 hover:cursor-pointer shadow-md">

@@ -11,6 +11,11 @@ const Orderpages = () => {
   const [showProductPages, setShowProductPages] = useState(false);
   const [showOrderPages, setShowOrderPages] = useState(true);
   const [showCartPages, setShowCartPages] = useState(false);
+  const [qty, setQty] = useState(0);
+
+  const updateQty = newQty => {
+    setQty(newQty);
+  }
 
   const backtoHome = () => {
     setShowProductPages(true)
@@ -32,7 +37,7 @@ const Orderpages = () => {
         <ProductVariant VariantType={'Serve'}/>
         <ProductVariant VariantType={'Ice'}/>
         <ProductNotes />
-        <ProductQty addtocart={AddToCart} />
+        <ProductQty addtocart={AddToCart} onChange={updateQty} value={qty}/>
       </div>
   )}
   {showProductPages && (<Homepages  />)}
