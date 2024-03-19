@@ -2,7 +2,6 @@ import React from 'react'
 import ArrowBack from '../assets/Icon/arrow-back-simple-svgrepo-com.svg';
 
 const Header = ({ backtoHome }) => { 
-  
   return (
     <div id="modalCustomOrder" class="max-w-md mx-auto">
        <div id="header" class="flex items-center border-b-2 max-w-md mx-auto pt-8 pb-4 px-2">

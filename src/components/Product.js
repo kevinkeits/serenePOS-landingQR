@@ -1,5 +1,4 @@
 import React from 'react'
-import ButtonAdd from '../elements/ButtonAdd'
 import Productimage from '../elements/Productimage'
 
 const Product = ({ custmOrder, itemName, itemDescription, itemPrice }) => {
@@ -13,7 +12,7 @@ const Product = ({ custmOrder, itemName, itemDescription, itemPrice }) => {
       <div className='text-right'>
       {/* <ButtonAdd/> */}
       <div>
-        <button onClick={custmOrder} className='OpenCustomOrder bg-blue-700 text-sm text-white font-semibold py-1 px-2 rounded-lg shadow-md w-20 h-7'>Add</button>
+        <button onClick={custmOrder} className='bg-blue-700 text-sm text-white font-semibold py-1 px-2 rounded-lg shadow-md w-20 h-7'>Add</button>
       </div>
       </div>
       </div>     

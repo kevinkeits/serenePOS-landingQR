@@ -6,8 +6,6 @@ import Orderpages from './Orderpages'
 import Cartpages from './Cartpages'
 import Product from '../components/Product'
 
-
-
 const Homepages = () => {
   const [showProductPages, setShowProductPages] = useState(true);
   const [showOrderPages, setShowOrderPages] = useState(false);
@@ -24,12 +22,10 @@ const Homepages = () => {
   }
 
   const backtoHome = () => {
-    setShowProductPages(false)
     setShowProductPages(true)
-    showCartPages(false)
+    setShowOrderPages(false)
+    setShowCartPages(false)
   }
-
-
 
   return (
     <div className='max-w-md mx-auto h-screen'>
@@ -40,9 +36,7 @@ const Homepages = () => {
         <div className='my-2'>
           <div className='categoryMenu max-w-md mx-auto'>
               <p className='font-bold py-2 px-2'> Non Coffee</p>
-
-              <Product custmOrder={openPages} itemName={'Matcha Latte'} itemDescription={'Hot/Cold'} itemPrice={'Rp 28,000'} />
-              <Product custmOrder={openPages} itemName={'Red Velvet Latte'} itemDescription={'Hot/Cold'} itemPrice={'Rp 28,000'}/>
+              <Product custmOrder={openPages} backtoHome={backtoHome} itemName={'Matcha Latte'} itemDescription={'Hot/Cold'} itemPrice={'Rp 28,000'} />
           </div>
         </div>
       </div>
