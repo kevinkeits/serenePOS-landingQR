@@ -4,10 +4,13 @@ import ProductVariant from '../components/ProductVariant'
 import ProductNotes from '../components/ProductNotes'
 import ProductQty from '../components/ProductQty'
 import Header from '../components/Header'
+import Product from '../components/Product'
+import Cartpages from './Cartpages'
+import Homepages from './Homepages'
 
 const Orderpages = () => {
-  const [showProductPages, setShowProductPages] = useState(true);
-  const [showOrderPages, setShowOrderPages] = useState(false);
+  const [showProductPages, setShowProductPages] = useState(false);
+  const [showOrderPages, setShowOrderPages] = useState(true);
   const [showCartPages, setShowCartPages] = useState(false);
 
   const backtoHome = () => {
@@ -18,14 +21,19 @@ const Orderpages = () => {
 
   return (
     <div className='max-w-md mx-auto h-screen'>
-      <Header backtoHome={backtoHome} itemName={'Matcha Latte'} itemDescription={'Hot/Cold'} itemPrice={'Rp 28,000'} />
-      <ProductLabel />
-      <ProductVariant />
-      <ProductVariant />
-      <ProductNotes />
-      <ProductQty />
-    </div>
+     {showOrderPages && (
+      <div>
+        <Header backtoHome={backtoHome} label={'Home'} />
+        <ProductLabel />
+        <ProductVariant />
+        <ProductVariant />
+        <ProductNotes />
+        <ProductQty />
+      </div>
+  )}
+  {showProductPages && (<Homepages  />)}
+  {showCartPages && (<Cartpages />)}
+  </div>
   )
 }
-
 export default Orderpages
