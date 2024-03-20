@@ -2,10 +2,10 @@ import React from 'react'
 
 const Product = ({ customOrder, itemName, itemDescription, itemPrice, ProductPhoto }) => {
   return (
-    <div className='productMenu flex mx-2 my-2 bg-white px-2 border rounded-lg shadow-md'>
-      <div>
-      <img src={ProductPhoto} alt='Matcha Latte' className='w-20 h-20 rounded-md'/>
-    </div>
+    <div className='productMenu flex mx-2 my-2 py-2 bg-white px-2 border rounded-lg shadow-md'>
+      <div className=''>
+        <img src={ProductPhoto} alt='Matcha Latte' className='w-28 h-24 rounded-md'/>
+      </div>
       <div className='mx-2 w-full'>
         <p className='text-base font-semibold '>{itemName}</p>
         <p className='text-xs'>{itemDescription}</p>
