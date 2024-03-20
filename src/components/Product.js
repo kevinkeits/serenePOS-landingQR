@@ -11,7 +11,7 @@ const Product = ({ customOrder, products}) => {
           <div className='mx-2 w-full'>
             <p className='text-base font-semibold'>{product.name}</p>
             <p className='text-xs'>{product.notes}</p>
-            <p className='text-md font-medium'>{product.price}</p>
+            <p className='text-md font-medium'>Rp. {product.price}</p>
             <div className='text-right'>
               <div className='py-1'>
                 <button onClick={() => customOrder(product)} className='bg-blue-700 text-sm text-white font-semibold py-1 px-2 rounded-lg shadow-md w-20'>Add</button>

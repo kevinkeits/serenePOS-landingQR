@@ -29,15 +29,15 @@ const Homepages = () => {
   };
 
   const products = [
-    { name: 'Matcha Latte', Categories: 'Non Cofee', notes: 'Hot/Cold', price: 'Rp 28,000', imgUrl: MatchaLattePic },
-    { name: 'Velvet Latte', Categories: 'Non Cofee', notes: 'Hot/Cold', price: 'Rp 28,000', imgUrl: VelvetLattePic },
-    { name: 'Americano', Categories: 'Coffee', notes: 'Hot/Cold', price: 'Rp 20,000', imgUrl: AmericanoPic },
-    { name: 'Cappucino', Categories: 'Coffee', notes: 'Hot/Cold', price: 'Rp 28,000', imgUrl: CappucinoPic },
-    { name: 'Baileys Coffee', Categories: 'Coffee', notes: 'Cold', price: 'Rp 30,000', imgUrl: BaileysCoffeePic },
-    { name: 'Kopi Tubruk', Categories: 'Coffee', notes: 'Hot', price: 'Rp 20,000', imgUrl: KopiTubrukPic },
-    { name: 'Vietnam Drip', Categories: 'Coffee', notes: 'Hot', price: 'Rp 25,000', imgUrl: VietnamDripPic },
-    { name: 'Fried Frice', Categories: 'food', notes: 'Spicy/No Spicy', price: 'Rp 25,000', imgUrl: VietnamDripPic },
-    { name: 'French Fries', Categories: 'food', notes: 'Small/Medium/Large', price: 'Rp 25,000', imgUrl: VietnamDripPic }
+    { name: 'Matcha Latte', Categories: 'Non Cofee', notes: 'Hot/Cold', price: '28000', imgUrl: MatchaLattePic },
+    { name: 'Velvet Latte', Categories: 'Non Cofee', notes: 'Hot/Cold', price: '28000', imgUrl: VelvetLattePic },
+    { name: 'Americano', Categories: 'Coffee', notes: 'Hot/Cold', price: '20000', imgUrl: AmericanoPic },
+    { name: 'Cappucino', Categories: 'Coffee', notes: 'Hot/Cold', price: '28000', imgUrl: CappucinoPic },
+    { name: 'Baileys Coffee', Categories: 'Coffee', notes: 'Cold', price: '30000', imgUrl: BaileysCoffeePic },
+    { name: 'Kopi Tubruk', Categories: 'Coffee', notes: 'Hot', price: '20000', imgUrl: KopiTubrukPic },
+    { name: 'Vietnam Drip', Categories: 'Coffee', notes: 'Hot', price: '25000', imgUrl: VietnamDripPic },
+    { name: 'Fried Frice', Categories: 'food', notes: 'Spicy/No Spicy', price: '25000', imgUrl: VietnamDripPic },
+    { name: 'French Fries', Categories: 'food', notes: 'Small/Medium/Large', price: '25000', imgUrl: VietnamDripPic }
   ];
 
   return (
