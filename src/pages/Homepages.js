@@ -14,12 +14,13 @@ import KopiTubrukPic from '../assets/thumbnail/Kopi-Tubruk.png';
 import VietnamDripPic from '../assets/thumbnail/Vietnam-Drip.png';
 
 const Homepages = () => {
+  const [selectedProduct, setSelectedProduct] = useState(null);
   const [showProductPages, setShowProductPages] = useState(true);
   const [showOrderPages, setShowOrderPages] = useState(false);
   const [showCartPages, setShowCartPages] = useState(false);
 
   const openPages = (product) => {
-    console.log(product);
+    setSelectedProduct(product);
     setShowOrderPages(true);
     setShowProductPages(false);
     setShowCartPages(false);
@@ -52,7 +53,7 @@ const Homepages = () => {
           <Product customOrder={openPages} products={products.filter(product => product.Categories.includes('food'))} />
         </div>
       )}
-      {showOrderPages && <Orderpages />}
+      {showOrderPages && <Orderpages selectedProduct={selectedProduct}/>}
       {showCartPages && <Cartpages />}
     </div>
   );
