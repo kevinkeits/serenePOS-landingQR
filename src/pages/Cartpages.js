@@ -30,17 +30,14 @@ const Cartpages = () => {
             <div className='py-2 mx-2'>
               <p className='text-base font-semibold'>Notes</p>
             </div>
-            <div className='bg-white border shadow-md rounded-md py-2 px-3 my-1 mx-2'>
+            <div className='bg-white border shadow-sm rounded-md py-2 px-3 my-1 mx-2'>
               <textarea placeholder='Ex: Add more...' className='w-full h-32 border-gray-300 rounded-md focus:outline-none focus:border-blue-500 resize-none' />
-              <div className='flex my-2 mx-2 items-center'>
-                <p className='text-slate-200 grow'>0/200</p>
-              </div>
             </div> 
           </div>
 
           <div className='max-w-md mx-auto flex items-center justify-between my-2 px-2'>
             <p font-medium text-base>Need Anything else?</p>
-            <button className='border py-2 px-2 rounded-lg shadow-md mx-2 text-base'>Add More</button>
+            <button className='border py-2 px-2 rounded-lg shadow-md mx-2 text-base font-medium'>Add More</button>
           </div>
 
           <div className='border max-w-md mx-auto px-2 mt-3 mb-4 rounded-lg'>
