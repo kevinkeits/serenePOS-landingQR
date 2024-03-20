@@ -27,13 +27,15 @@ const Homepages = () => {
   };
 
   const products = [
-    { itemName: 'Matcha Latte', itemCategories: 'Non Cofee', itemDescription: 'Hot/Cold', itemPrice: 'Rp 28,000', ProductPhoto: MatchaLattePic },
-    { itemName: 'Velvet Latte', itemCategories: 'Non Cofee', itemDescription: 'Hot/Cold', itemPrice: 'Rp 28,000', ProductPhoto: VelvetLattePic },
-    { itemName: 'Americano', itemCategories: 'Coffee', itemDescription: 'Hot/Cold', itemPrice: 'Rp 20,000', ProductPhoto: AmericanoPic },
-    { itemName: 'Cappucino', itemCategories: 'Coffee', itemDescription: 'Hot/Cold', itemPrice: 'Rp 28,000', ProductPhoto: CappucinoPic },
-    { itemName: 'Baileys Coffee', itemCategories: 'Coffee', itemDescription: 'Cold', itemPrice: 'Rp 30,000', ProductPhoto: BaileysCoffeePic },
-    { itemName: 'Kopi Tubruk', itemCategories: 'Coffee', itemDescription: 'Hot', itemPrice: 'Rp 20,000', ProductPhoto: KopiTubrukPic },
-    { itemName: 'Vietnam Drip', itemCategories: 'Coffee', itemDescription: 'Hot', itemPrice: 'Rp 25,000', ProductPhoto: VietnamDripPic }
+    { name: 'Matcha Latte', Categories: 'Non Cofee', notes: 'Hot/Cold', price: 'Rp 28,000', imgUrl: MatchaLattePic },
+    { name: 'Velvet Latte', Categories: 'Non Cofee', notes: 'Hot/Cold', price: 'Rp 28,000', imgUrl: VelvetLattePic },
+    { name: 'Americano', Categories: 'Coffee', notes: 'Hot/Cold', price: 'Rp 20,000', imgUrl: AmericanoPic },
+    { name: 'Cappucino', Categories: 'Coffee', notes: 'Hot/Cold', price: 'Rp 28,000', imgUrl: CappucinoPic },
+    { name: 'Baileys Coffee', Categories: 'Coffee', notes: 'Cold', price: 'Rp 30,000', imgUrl: BaileysCoffeePic },
+    { name: 'Kopi Tubruk', Categories: 'Coffee', notes: 'Hot', price: 'Rp 20,000', imgUrl: KopiTubrukPic },
+    { name: 'Vietnam Drip', Categories: 'Coffee', notes: 'Hot', price: 'Rp 25,000', imgUrl: VietnamDripPic },
+    { name: 'Fried Frice', Categories: 'food', notes: 'Spicy/No Spicy', price: 'Rp 25,000', imgUrl: VietnamDripPic },
+    { name: 'French Fries', Categories: 'food', notes: 'Small/Medium/Large', price: 'Rp 25,000', imgUrl: VietnamDripPic }
   ];
 
   return (
@@ -43,11 +45,11 @@ const Homepages = () => {
           <Title />
           <Search />
           <p className='mx-2 text-base font-bold my-2'>Non Coffee</p>
-          <Product customOrder={openPages} products={products.filter(product => product.itemCategories.includes('Non'))} />
+          <Product customOrder={openPages} products={products.filter(product => product.Categories.includes('Non'))} />
           <p className='mx-2 text-base font-bold my-2'>Coffee</p>
-          <Product customOrder={openPages} products={products.filter(product => product.itemCategories.includes('Coffee'))} />
-          <p className='mx-2 text-base font-bold my-2'>Add On</p>
-          <Product customOrder={openPages} products={products.filter(product => product.itemCategories.includes('Coffee'))} />
+          <Product customOrder={openPages} products={products.filter(product => product.Categories.includes('Coffee'))} />
+          <p className='mx-2 text-base font-bold my-2'>food</p>
+          <Product customOrder={openPages} products={products.filter(product => product.Categories.includes('food'))} />
         </div>
       )}
       {showOrderPages && <Orderpages />}
