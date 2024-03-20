@@ -15,7 +15,7 @@ const Orderpages = ({ selectedProduct, value, addtocart}) => {
   const [orderPrice, setOrderPrice] = useState(qty * productPrice);
 
   useEffect(() => {
-    setOrderPrice(qty * productPrice); // Update orderPrice when qty or price changes
+    setOrderPrice(qty * productPrice);
   }, [qty, productPrice]);
 
     const backtoHome = () => {
