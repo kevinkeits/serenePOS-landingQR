@@ -1,19 +1,25 @@
 
-import React, { useState } from 'react'
+import React, { useState, useEffect  } from 'react'
 
 
-const ProductQty = ({addtocart, value, onChange, orderPrice}) => {
+const ProductQty = ({addtocart, value, onChange, price }) => {
   const [qty, setQty] = useState(value || 1);
+  const [orderPrice, setOrderPrice] = useState(qty * price);
+
+  useEffect(() => {
+    setOrderPrice(qty * price);
+  }, [qty, price]);
+
   const incrementQty = () => {
     setQty(qty + 1);
-    onChange(qty + 1);
+    
   };
 
   // Fungsi untuk mengurangi kuantity
   const decrementQty = () => {
     if (qty > 1) {
       setQty(qty - 1);
-      onChange(qty - 1);
+   
     }
   };
 
@@ -27,7 +33,7 @@ const ProductQty = ({addtocart, value, onChange, orderPrice}) => {
       </div>  
       {/* Button Add To Cart */}
       <div className="bg-blue-600 rounded-lg py-1 my-2 hover:cursor-pointer shadow-md">
-        <div onClick={addtocart} className="bg-blue-600 rounded-lg my-2 hover:cursor-pointer flex items-start justify-center gap-2">
+        <div onClick={() => addtocart(qty)} className="bg-blue-600 rounded-lg my-2 hover:cursor-pointer flex items-start justify-center gap-2">
             <p className="text-center text-white text-lg">Add To Cart -</p>
             <p id="totalValue" className="text-center text-white text-lg">{orderPrice}</p>
         </div>

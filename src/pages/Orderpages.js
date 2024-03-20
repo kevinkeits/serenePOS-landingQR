@@ -57,7 +57,7 @@ const Orderpages = ({ selectedProduct }) => {
             VariantPrice={[['0', '0'], ['0', '1000', '0'], ['2000', '3000', '4000', '5000', '6000']]}
           />
           <ProductNotes />
-          <ProductQty addtocart={AddToCart} onChange={updateQty} value={qty} orderPrice={orderPrice.toString()}/>
+          <ProductQty addtocart={AddToCart} onChange={updateQty} price={price} value={qty} orderPrice={orderPrice.toString()}/>
         </div>
       )}
       {showProductPages && (<Homepages  />)}
