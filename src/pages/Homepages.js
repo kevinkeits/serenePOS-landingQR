@@ -21,6 +21,7 @@ const Homepages = () => {
 
   const openPages = (product) => {
     setSelectedProduct(product);
+    console.log(product);
     setShowOrderPages(true);
     setShowProductPages(false);
     setShowCartPages(false);
