@@ -18,20 +18,22 @@ const Homepages = () => {
   const [showOrderPages, setShowOrderPages] = useState(false);
   const [showCartPages, setShowCartPages] = useState(false);
 
-  const openPages = () => {
+  const openPages = (product) => {
+    console.log(product);
     setShowOrderPages(true);
     setShowProductPages(false);
     setShowCartPages(false);
+
   };
 
   const products = [
-    { itemName: 'Matcha Latte', itemDescription: 'Hot/Cold', itemPrice: 'Rp 28,000', ProductPhoto: MatchaLattePic },
-    { itemName: 'Velvet Latte', itemDescription: 'Hot/Cold', itemPrice: 'Rp 28,000', ProductPhoto: VelvetLattePic },
-    { itemName: 'Americano', itemDescription: 'Hot/Cold', itemPrice: 'Rp 20,000', ProductPhoto: AmericanoPic },
-    { itemName: 'Cappucino', itemDescription: 'Hot/Cold', itemPrice: 'Rp 28,000', ProductPhoto: CappucinoPic },
-    { itemName: 'Baileys Coffee', itemDescription: 'Cold', itemPrice: 'Rp 30,000', ProductPhoto: BaileysCoffeePic },
-    { itemName: 'Kopi Tubruk', itemDescription: 'Hot', itemPrice: 'Rp 20,000', ProductPhoto: KopiTubrukPic },
-    { itemName: 'Vietnam Drip', itemDescription: 'Hot', itemPrice: 'Rp 25,000', ProductPhoto: VietnamDripPic }
+    { itemName: 'Matcha Latte', itemCategories: 'Non Cofee', itemDescription: 'Hot/Cold', itemPrice: 'Rp 28,000', ProductPhoto: MatchaLattePic },
+    { itemName: 'Velvet Latte', itemCategories: 'Non Cofee', itemDescription: 'Hot/Cold', itemPrice: 'Rp 28,000', ProductPhoto: VelvetLattePic },
+    { itemName: 'Americano', itemCategories: 'Coffee', itemDescription: 'Hot/Cold', itemPrice: 'Rp 20,000', ProductPhoto: AmericanoPic },
+    { itemName: 'Cappucino', itemCategories: 'Coffee', itemDescription: 'Hot/Cold', itemPrice: 'Rp 28,000', ProductPhoto: CappucinoPic },
+    { itemName: 'Baileys Coffee', itemCategories: 'Coffee', itemDescription: 'Cold', itemPrice: 'Rp 30,000', ProductPhoto: BaileysCoffeePic },
+    { itemName: 'Kopi Tubruk', itemCategories: 'Coffee', itemDescription: 'Hot', itemPrice: 'Rp 20,000', ProductPhoto: KopiTubrukPic },
+    { itemName: 'Vietnam Drip', itemCategories: 'Coffee', itemDescription: 'Hot', itemPrice: 'Rp 25,000', ProductPhoto: VietnamDripPic }
   ];
 
   return (
@@ -41,11 +43,11 @@ const Homepages = () => {
           <Title />
           <Search />
           <p className='mx-2 text-base font-bold my-2'>Non Coffee</p>
-          <Product customOrder={openPages} products={products.filter(product => !product.itemName.includes('Coffee'))} />
+          <Product customOrder={openPages} products={products.filter(product => product.itemCategories.includes('Non'))} />
           <p className='mx-2 text-base font-bold my-2'>Coffee</p>
-          <Product customOrder={openPages} products={products.filter(product => product.itemName.includes('Coffee'))} />
+          <Product customOrder={openPages} products={products.filter(product => product.itemCategories.includes('Coffee'))} />
           <p className='mx-2 text-base font-bold my-2'>Add On</p>
-          <Product customOrder={openPages} products={products.filter(product => product.itemName.includes('Coffee'))} />
+          <Product customOrder={openPages} products={products.filter(product => product.itemCategories.includes('Coffee'))} />
         </div>
       )}
       {showOrderPages && <Orderpages />}
