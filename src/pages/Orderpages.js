@@ -14,14 +14,11 @@ const Orderpages = ({ selectedProduct, value, addtocart}) => {
   const [qty, setQty] = useState(value || 1);
   const [orderPrice, setOrderPrice] = useState(qty * productPrice);
 
-  const updateQty = newQty => {
-    setQty(newQty);
-    if (selectedProduct) {
-      setOrderPrice(newQty * productPrice); 
-    }
-  }
+  useEffect(() => {
+    setOrderPrice(qty * productPrice); // Update orderPrice when qty or price changes
+  }, [qty, productPrice]);
 
-  const backtoHome = () => {
+    const backtoHome = () => {
     setShowProductPages(true)
     setShowOrderPages(false)
     setShowCartPages(false)
