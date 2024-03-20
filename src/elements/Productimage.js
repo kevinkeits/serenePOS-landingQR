@@ -1,6 +1,5 @@
 import React from 'react'
 import MatchaLatte from '../assets/thumbnail/Matcha Latte.png'
-import VelvetLatte from '../assets/thumbnail/Americano.png'
 
 const Productimage = () => {
   return (
