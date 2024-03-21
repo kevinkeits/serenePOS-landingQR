@@ -59,11 +59,11 @@ const Homepages = () => {
           <Title />
           <Search />
           <p className='mx-2 text-base font-bold my-2'>Non Coffee</p>
-          <Product customOrder={openPages} products={products.filter(product => product.name.includes('Cappucino'))} />
+          <Product customOrder={openPages} products={products.filter(product => product.categoryName.includes('Non Coffee') && product.name.toLowerCase().includes('milk'))} />
           <p className='mx-2 text-base font-bold my-2'>Coffee</p>
-          <Product customOrder={openPages} products={products.filter(product => product.name.includes('Coffee'))} />
+          <Product customOrder={openPages} products={products.filter(product => product.categoryName.includes('Coffee')&& product.name.toLowerCase().includes('am'))} />
           <p className='mx-2 text-base font-bold my-2'>food</p>
-          <Product customOrder={openPages} products={products.filter(product => product.name.includes('Fried'))} />
+          <Product customOrder={openPages} products={products.filter(product => product.categoryName.includes('Food') && product.name.toLowerCase().includes('don'))} />
         </div>
       )}
       {showOrderPages && <Orderpages selectedProduct={selectedProduct}/>}
