@@ -1,18 +1,30 @@
-import React, { useState,  } from 'react'
+import React, { useState, useEffect } from 'react'
 import Orderdetail from '../components/Orderdetail'
 import Homepages from './Homepages'
 import Header from '../components/Header'
+import axios from 'axios';
 
 const Cartpages = () => {
   const [showProductPages, setShowProductPages] = useState(false);
   const [showOrderPages, setShowOrderPages] = useState(true);
   const [showCartPages, setShowCartPages] = useState(false);
+  const [products, setProduct] = useState([]);
 
   const backtoHome = () => {
     setShowProductPages(true)
     setShowOrderPages(false)
     setShowCartPages(false)
   }
+
+  useEffect(() => {
+    axios.get('https://serenepos.temandigital.id/api/scanOrder/get')
+      .then(response => {
+        setProduct(response.data.data)
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  }, []);
 
   return (
     <div>
@@ -24,7 +36,6 @@ const Cartpages = () => {
           <div>
             <Orderdetail />
           </div>
-                             
           {/* Notes */}
           <div className='sticky bg-white w-full rounded-lg mb-2'>
             <div className='py-2 mx-2'>

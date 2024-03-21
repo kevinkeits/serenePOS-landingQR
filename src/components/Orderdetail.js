@@ -3,8 +3,8 @@ import Productimage from '../assets/thumbnail/Cappucino.png'
 import Icondelete from '../assets/Icon/trash-bin-trash-svgrepo-com.svg'
 import Iconedit from '../assets/Icon/pencil-svgrepo-com.svg'
 
-
 const Orderdetail = ({OrderPrice, OrderNotes, seledtedVarOp}) => {
+
   return (
     <div className='px-2 m-2 py-4 border rounded-xl shadow-sm'>
       <div className="flex items-center">
@@ -33,8 +33,6 @@ const Orderdetail = ({OrderPrice, OrderNotes, seledtedVarOp}) => {
         </div>
         <img src={Icondelete} className='w-8'/>
       </div>
-      
-
     </div>
   )
 }
