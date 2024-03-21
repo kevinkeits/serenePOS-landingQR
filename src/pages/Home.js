@@ -1,29 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
-import Homepages from './Homepages'
+import Homepages from './Homepages';
 
 function Home() {
+  const [data, setData] = useState([]);
 
-const [data, setData] = useState([]);
-
-useEffect(() => {
-  // Panggil API saat komponen dimuat
-  axios.get('https://serenepos.temandigital.id/api/scanOrder/get')
-    .then(response => {
-      // Set data ke state
-      setData(response.data);
-    })
-    .catch(error => {
-      console.error('Error:', error);
-    });
-}, []); // Efek ini hanya dijalankan sekali setelah render pertama
+  useEffect(() => {
+    axios.get('https://serenepos.temandigital.id/api/scanOrder/get')
+      .then(response => {
+        setData(response.data);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  }, []);
 
   return (
     <div>
-      <Homepages/>
+      <Homepages data={data} /> {/* Pass the fetched data to Homepages */}
     </div>
   )
 }
 
-export default Home
+export default Home;
