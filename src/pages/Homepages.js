@@ -18,16 +18,23 @@ const Homepages = () => {
   const [searchQuery, setSearchQuery] = useState('');
 
   const openPages = (product) => {
-    setSelectedProduct(product);
+    axios.get(`https://serenepos.temandigital.id/api/scanOrder/get?ID=${product.id}`)
+    .then(response => {
+      setSelectedProduct(response.data.data);
     setShowOrderPages(true);
     setShowProductPages(false);
     setShowCartPages(false);
+   
+    });
+
+    
   };
 
   useEffect(() => {
     axios.get('https://serenepos.temandigital.id/api/scanOrder/get')
-      .then(response => {
-        const Product = response.data.data.map(product => ({
+      .then(respon => {
+        /* console.log(respon.data.data); */
+        const Product = respon.data.data.map(product => ({
           ...product, 
           price: parseFloat(product.price).toFixed(0),
           imgUrl: product.imgUrl ? product.imgUrl : NoImage
@@ -65,7 +72,7 @@ const Homepages = () => {
           ))}
         </div>
       )}
-      {showOrderPages && <Orderpages selectedProduct={selectedProduct}/>}
+      {showOrderPages && <Orderpages selectedProduct={selectedProduct} />}
       {showCartPages && <Cartpages />}
     </div>
   );

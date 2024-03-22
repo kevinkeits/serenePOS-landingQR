@@ -1,11 +1,10 @@
 // Orderpages.js
 import React, { useState, useEffect } from 'react';
-import ProductVariant from '../components/ProductVariant';
+/* import ProductVariant from '../components/ProductVariant'; */
 import ProductNotes from '../components/ProductNotes';
 import Header from '../components/Header';
 import Cartpages from './Cartpages';
 import Homepages from './Homepages';
-import axios from 'axios';
 
 const Orderpages = ({ selectedProduct, variants }) => {
   const [showProductPages, setShowProductPages] = useState(false);
@@ -13,14 +12,22 @@ const Orderpages = ({ selectedProduct, variants }) => {
   const [showCartPages, setShowCartPages] = useState(false);
   const [qty, setQty] = useState(1);
   const [orderPrice, setOrderPrice] = useState(selectedProduct ? selectedProduct.price : 0);
+
+  const [variantList, setvariantList] = useState([]);
+  const [variantCategory, setvariantCategory] = useState([]);
+
   
   useEffect(() => {
-    if (selectedProduct && !isNaN(qty) && !isNaN(selectedProduct.price)) {
-      setOrderPrice(qty * selectedProduct.price);
-    } else {
-      setOrderPrice(0);
-    }
-  }, [qty, selectedProduct]);
+    if (selectedProduct) {
+      console.log(selectedProduct.variant);
+      const variantList = selectedProduct.variant.map(variant => ({
+        ...variant}));
+      setvariantList(variantList);
+
+      const VariantList = [...new Set(variantList.map(variant => variant.name))];
+      setvariantCategory(VariantList);
+    };
+  }, [selectedProduct]);
 
   const backtoHome = () => {
     setShowProductPages(true);
@@ -34,12 +41,25 @@ const Orderpages = ({ selectedProduct, variants }) => {
   }
 
   const incrementQty = () => {
+
     setQty(qty + 1);
+
+    if (selectedProduct && !isNaN(qty + 1) && !isNaN(selectedProduct.product.price)) {
+      setOrderPrice((qty + 1) * selectedProduct.product.price);
+    } else {
+      setOrderPrice(0);
+    }
   };
 
   const decrementQty = () => {
     if (qty > 1) {
       setQty(qty - 1);
+
+      if (selectedProduct && !isNaN(qty - 1) && !isNaN(selectedProduct.product.price)) {
+        setOrderPrice((qty - 1) * selectedProduct.product.price);
+      } else {
+        setOrderPrice(0);
+      }
     }
   };
 
@@ -47,7 +67,7 @@ const Orderpages = ({ selectedProduct, variants }) => {
     return null;
   }
 
-  const { name, price } = selectedProduct;
+  const { name, price } = selectedProduct.product;
 
   return (
     <div className='max-w-md mx-auto h-screen'>
@@ -64,11 +84,44 @@ const Orderpages = ({ selectedProduct, variants }) => {
             </div> 
           </div> 
 
-          <ProductVariant
+          {/* <ProductVariant
             VariantType={['Serve', 'Sugar', 'Add On']}
             VariantLabel={[['Ice', 'Hot'], ['Normal', 'Less Sugar', 'More Sugar'], ['Sugar Syrup', 'Bobba', 'Grass Jelly', 'Milk', 'Cheese']]}
             VariantPrice={[['0', '0'], ['0', '1000', '0'], ['2000', '3000', '4000', '5000', '6000']]}
-          />
+          /> */}
+
+          
+         {/*  {variantList.map(variant => (
+            <div key={variant} className='px-2 m-2'>
+              <p className='font-semibold'>{variant.name}</p>
+              <div className='flex gap-2 items-center space-x-2 py-1'>
+              <input className='focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300' type="radio" />
+                <p>{variant.label}</p>
+                <div className='grow bg-slate-200 rounded-md px-2 py-1'>
+                  <p className='ml-2 text-gray-500'>{variant.price}</p>
+                </div>
+              </div>
+            </div>
+          ))} */}
+
+          {variantCategory.map(name => (
+            <div key={name} className='px-2 m-2'>
+              <p className='font-semibold'>{name}</p>
+              {variantList.filter(variant => variant.name === name).map((variant, index) => (
+                <div key={index} className='px-2 m-2'>
+                  <div className='flex gap-2 items-center space-x-2 py-1'>
+                  <input className='focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300' type="radio" />
+                    <p className='ml-2 font-medium text-base text-gray-700 w-24'>{variant.label}</p>
+                    <div className='grow bg-slate-200 rounded-md px-2 py-1'>
+                      <p className='ml-2 text-gray-500'>{variant.price}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ))}
+
+     
 
           <ProductNotes />
           <div className="max-w-md mx-auto border-t-2 pt-4 pb-3 px-3">
