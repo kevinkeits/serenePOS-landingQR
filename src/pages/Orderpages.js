@@ -1,6 +1,4 @@
-// Orderpages.js
 import React, { useState, useEffect } from 'react';
-/* import ProductVariant from '../components/ProductVariant'; */
 import ProductNotes from '../components/ProductNotes';
 import Header from '../components/Header';
 import Cartpages from './Cartpages';
@@ -13,38 +11,35 @@ const Orderpages = ({ selectedProduct, variants }) => {
   const [qty, setQty] = useState(1);
   const [orderPrice, setOrderPrice] = useState(selectedProduct ? selectedProduct.price : 0);
 
-  const [variantList, setvariantList] = useState([]);
-  const [variantCategory, setvariantCategory] = useState([]);
-  const [selectedOptions, setSelectedOptions] = useState({}); // Track selected options
+  const [variantList, setVariantList] = useState([]);
+  const [variantCategory, setVariantCategory] = useState([]);
+  const [selectedOptions, setSelectedOptions] = useState({});
 
-  
   useEffect(() => {
     if (selectedProduct) {
-      console.log(selectedProduct.variant);
-      const variantList = selectedProduct.variant.map(variant => ({
+      const updatedVariantList = selectedProduct.variant.map(variant => ({
         ...variant,
         price: parseFloat(variant.price).toFixed(0)
       }));
-      setvariantList(variantList);
+      setVariantList(updatedVariantList);
 
-      const VariantList = [...new Set(variantList.map(variant => variant.name))];
-      setvariantCategory(VariantList);
-    };
+      const updatedVariantCategory = [...new Set(updatedVariantList.map(variant => variant.name))];
+      setVariantCategory(updatedVariantCategory);
+    }
   }, [selectedProduct]);
 
   const backtoHome = () => {
     setShowProductPages(true);
     setShowOrderPages(false);
     setShowCartPages(false);
-  }
+  };
 
   const AddToCart = () => {
     setShowOrderPages(false);
     setShowCartPages(true);
-  }
+  };
 
   const incrementQty = () => {
-
     setQty(qty + 1);
 
     if (selectedProduct && !isNaN(qty + 1) && !isNaN(selectedProduct.product.price)) {
@@ -66,13 +61,13 @@ const Orderpages = ({ selectedProduct, variants }) => {
     }
   };
 
-  if (!selectedProduct) {
-    return null;
-  }
-
   const handleOptionChange = (category, value) => {
     setSelectedOptions({ ...selectedOptions, [category]: value });
   };
+
+  if (!selectedProduct) {
+    return null;
+  }
 
   const { name, price } = selectedProduct.product;
   const groupedVariants = {};
@@ -96,31 +91,31 @@ const Orderpages = ({ selectedProduct, variants }) => {
           </div> 
 
           {variantCategory.map((name, nameIndex) => (
-          <div key={nameIndex} className='px-2 m-2'>
-            <p className='font-semibold'>{name}</p>
-            {groupedVariants[name].map((variant, index) => (
-              <div key={index} className='px-2 m-2'>
-                <div className='flex gap-2 items-center space-x-2 py-1'>
-                <input
-                  className='focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300'
-                  type="radio"
-                  value={variant.label}
-                  checked={selectedOptions[name] === variant.label}
-                  data-varprice={variant.price}
-                  onChange={(event) => {
-                    console.log(event.target.value, event.target.dataset.varprice);
-                    handleOptionChange(name, variant.label);
-                  }}
-                />
-                  <p className='ml-2 font-medium text-base text-gray-700 w-24'>{variant.label}</p>
-                  <div className='grow bg-slate-200 rounded-md px-2 py-1'>
-                    <p className='ml-2 text-gray-500'>{variant.price}</p>
+            <div key={nameIndex} className='px-2 m-2'>
+              <p className='font-semibold'>{name}</p>
+              {groupedVariants[name].map((variant, index) => (
+                <div key={index} className='px-2 m-2'>
+                  <div className='flex gap-2 items-center space-x-2 py-1'>
+                    <input
+                      className='focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300'
+                      type="radio"
+                      value={variant.label}
+                      checked={selectedOptions[name] === variant.label}
+                      data-varprice={variant.price}
+                      onChange={(event) => {
+                        console.log(event.target.value, event.target.dataset.varprice);
+                        handleOptionChange(name, variant.label);
+                      }}
+                    />
+                    <p className='ml-2 font-medium text-base text-gray-700 w-24'>{variant.label}</p>
+                    <div className='grow bg-slate-200 rounded-md px-2 py-1'>
+                      <p className='ml-2 text-gray-500'>{variant.price}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        ))}
+              ))}
+            </div>
+          ))}
 
           <ProductNotes />
           <div className="max-w-md mx-auto border-t-2 pt-4 pb-3 px-3">
@@ -144,4 +139,5 @@ const Orderpages = ({ selectedProduct, variants }) => {
     </div>
   );
 }
+
 export default Orderpages;
