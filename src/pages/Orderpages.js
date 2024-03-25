@@ -86,13 +86,16 @@ const Orderpages = ({ selectedProduct, variants }) => {
             </div> 
           </div> 
 
-          {variantCategory.map(name => (
-            <div key={name} className='px-2 m-2'>
+          {variantCategory.map((name, nameIndex) => (
+            <div key={nameIndex} className='px-2 m-2'>
               <p className='font-semibold'>{name}</p>
               {variantList.filter(variant => variant.name === name).map((variant, index) => (
                 <div key={index} className='px-2 m-2'>
                   <div className='flex gap-2 items-center space-x-2 py-1'>
-                  <input className='focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300' type="radio" />
+                  <input  className='focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300' type="radio"
+                          value={variant.label}
+                          data-varprice={variant.price}
+                          onChange={(event) => console.log(event.target.value, event.target.dataset.varprice)} />
                     <p className='ml-2 font-medium text-base text-gray-700 w-24'>{variant.label}</p>
                     <div className='grow bg-slate-200 rounded-md px-2 py-1'>
                       <p className='ml-2 text-gray-500'>{variant.price}</p>
