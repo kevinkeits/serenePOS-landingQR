@@ -4,7 +4,7 @@ import Header from '../components/Header';
 import Cartpages from './Cartpages';
 import Homepages from './Homepages';
 
-const Orderpages = ({ selectedProduct, variants }) => {
+const Orderpages = ({ selectedProduct }) => {
   const [showProductPages, setShowProductPages] = useState(false);
   const [showOrderPages, setShowOrderPages] = useState(true);
   const [showCartPages, setShowCartPages] = useState(false);
@@ -23,7 +23,7 @@ const Orderpages = ({ selectedProduct, variants }) => {
       }));
       setVariantList(updatedVariantList);
 
-      const updatedVariantCategory = [...new Set(updatedVariantList.map(variant => variant.name))];
+      const updatedVariantCategory = [...new Set(updatedVariantList.map(variant => variant.variantID))];
       setVariantCategory(updatedVariantCategory);
     }
   }, [selectedProduct]);
@@ -40,10 +40,22 @@ const Orderpages = ({ selectedProduct, variants }) => {
   };
 
   const incrementQty = () => {
-    setQty(qty + 1);
+    const finalQty = qty + 1
+    setQty(finalQty);
 
-    if (selectedProduct && !isNaN(qty + 1) && !isNaN(selectedProduct.product.price)) {
-      setOrderPrice((qty + 1) * selectedProduct.product.price);
+    let variantPrice = 0;
+    for (let index = 0; index < variantList.length; index++) {
+      if (selectedOptions[variantList[index].variantID] !== undefined) {
+        if (selectedOptions[variantList[index].variantID] === variantList[index].variantOptionID) {
+          variantPrice += parseInt(variantList[index].price)
+        }
+      }
+    }
+    console.log(variantPrice)
+
+
+    if (selectedProduct) {
+      setOrderPrice((parseInt(finalQty)) * (parseInt(selectedProduct.product.price) + variantPrice));
     } else {
       setOrderPrice(0);
     }
@@ -71,8 +83,8 @@ const Orderpages = ({ selectedProduct, variants }) => {
 
   const { name, price } = selectedProduct.product;
   const groupedVariants = {};
-  variantCategory.forEach(name => {
-    groupedVariants[name] = variantList.filter(variant => variant.name === name);
+  variantCategory.forEach(variantID => {
+    groupedVariants[variantID] = variantList.filter(variant => variant.variantID === variantID);
   });
 
   return (
@@ -90,21 +102,19 @@ const Orderpages = ({ selectedProduct, variants }) => {
             </div> 
           </div> 
 
-          {variantCategory.map((name, nameIndex) => (
+          {variantCategory.map((variantID, nameIndex) => (
             <div key={nameIndex} className='px-2 m-2'>
-              <p className='font-semibold'>{name}</p>
-              {groupedVariants[name].map((variant, index) => (
+              <p className='font-semibold'>{groupedVariants[variantID][0].name}</p>
+              {groupedVariants[variantID].map((variant, index) => (
                 <div key={index} className='px-2 m-2'>
                   <div className='flex gap-2 items-center space-x-2 py-1'>
                     <input
                       className='focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300'
                       type="radio"
-                      value={variant.label}
-                      checked={selectedOptions[name] === variant.label}
+                      value={variant.variantOptionID}
+                      checked={selectedOptions[variantID] === variant.variantOptionID}
                       data-varprice={variant.price}
-                      onChange={(event) => {
-                        console.log(event.target.value, event.target.dataset.varprice);
-                        handleOptionChange(name, variant.label);
+                      onChange={() => {handleOptionChange(variantID, variant.variantOptionID);
                       }}
                     />
                     <p className='ml-2 font-medium text-base text-gray-700 w-24'>{variant.label}</p>
