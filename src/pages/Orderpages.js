@@ -28,6 +28,10 @@ const Orderpages = ({ selectedProduct }) => {
     }
   }, [selectedProduct]);
 
+  useEffect(() => {
+    updateOrderPrice();
+  }, [qty, selectedOptions]);
+
   const backtoHome = () => {
     setShowProductPages(true);
     setShowOrderPages(false);
@@ -40,41 +44,31 @@ const Orderpages = ({ selectedProduct }) => {
   };
 
   const incrementQty = () => {
-    const finalQty = qty + 1
-    setQty(finalQty);
-
-    let variantPrice = 0;
-    for (let index = 0; index < variantList.length; index++) {
-      if (selectedOptions[variantList[index].variantID] !== undefined) {
-        if (selectedOptions[variantList[index].variantID] === variantList[index].variantOptionID) {
-          variantPrice += parseInt(variantList[index].price)
-        }
-      }
-    }
-    console.log(variantPrice)
-
-
-    if (selectedProduct) {
-      setOrderPrice((parseInt(finalQty)) * (parseInt(selectedProduct.product.price) + variantPrice));
-    } else {
-      setOrderPrice(0);
-    }
+    setQty(prevQty => prevQty + 1);
   };
 
   const decrementQty = () => {
     if (qty > 1) {
-      setQty(qty - 1);
-
-      if (selectedProduct && !isNaN(qty - 1) && !isNaN(selectedProduct.product.price)) {
-        setOrderPrice((qty - 1) * selectedProduct.product.price);
-      } else {
-        setOrderPrice(0);
-      }
+      setQty(prevQty => prevQty - 1);
     }
   };
 
   const handleOptionChange = (category, value) => {
     setSelectedOptions({ ...selectedOptions, [category]: value });
+  };
+
+  const updateOrderPrice = () => {
+    let totalVariantPrice = 0;
+    for (const variantID in selectedOptions) {
+      const selectedOptionID = selectedOptions[variantID];
+      const selectedVariant = variantList.find(variant => variant.variantID === variantID && variant.variantOptionID === selectedOptionID);
+      if (selectedVariant) {
+        totalVariantPrice += parseFloat(selectedVariant.price);
+      }
+    }
+    const basePrice = parseFloat(selectedProduct.product.price);
+    const totalPrice = (basePrice + totalVariantPrice) * qty;
+    setOrderPrice(totalPrice.toFixed(0));
   };
 
   if (!selectedProduct) {
