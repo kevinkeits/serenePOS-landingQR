@@ -21,7 +21,9 @@ const Orderpages = ({ selectedProduct, variants }) => {
     if (selectedProduct) {
       console.log(selectedProduct.variant);
       const variantList = selectedProduct.variant.map(variant => ({
-        ...variant}));
+        ...variant,
+        price: parseFloat(variant.price).toFixed(0)
+      }));
       setvariantList(variantList);
 
       const VariantList = [...new Set(variantList.map(variant => variant.name))];
@@ -80,29 +82,9 @@ const Orderpages = ({ selectedProduct, variants }) => {
             </div>
             <div className="inline-flex items-center py-1 pr-2">
                 <p className="text-sm font-medium"></p>
-                <p id="itemPrice" className="text-sm font-medium pl-1">Rp. {price}</p>
+                <p id="itemPrice" className="text-sm font-medium pl-1">Rp. {parseFloat(price).toFixed(0)}</p>
             </div> 
           </div> 
-
-          {/* <ProductVariant
-            VariantType={['Serve', 'Sugar', 'Add On']}
-            VariantLabel={[['Ice', 'Hot'], ['Normal', 'Less Sugar', 'More Sugar'], ['Sugar Syrup', 'Bobba', 'Grass Jelly', 'Milk', 'Cheese']]}
-            VariantPrice={[['0', '0'], ['0', '1000', '0'], ['2000', '3000', '4000', '5000', '6000']]}
-          /> */}
-
-          
-         {/*  {variantList.map(variant => (
-            <div key={variant} className='px-2 m-2'>
-              <p className='font-semibold'>{variant.name}</p>
-              <div className='flex gap-2 items-center space-x-2 py-1'>
-              <input className='focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300' type="radio" />
-                <p>{variant.label}</p>
-                <div className='grow bg-slate-200 rounded-md px-2 py-1'>
-                  <p className='ml-2 text-gray-500'>{variant.price}</p>
-                </div>
-              </div>
-            </div>
-          ))} */}
 
           {variantCategory.map(name => (
             <div key={name} className='px-2 m-2'>
@@ -120,8 +102,6 @@ const Orderpages = ({ selectedProduct, variants }) => {
               ))}
             </div>
           ))}
-
-     
 
           <ProductNotes />
           <div className="max-w-md mx-auto border-t-2 pt-4 pb-3 px-3">
