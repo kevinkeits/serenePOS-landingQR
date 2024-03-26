@@ -76,7 +76,7 @@ const Orderpages = ({ selectedProduct }) => {
     return null;
   }
 
-  const { name, price } = selectedProduct.product;
+  const { name, price, imgUrl } = selectedProduct.product;
   const groupedVariants = {};
   variantCategory.forEach(variantID => {
     groupedVariants[variantID] = variantList.filter(variant => variant.variantID === variantID);
@@ -140,7 +140,7 @@ const Orderpages = ({ selectedProduct }) => {
         </div>
       )}
       {showProductPages && (<Homepages  />)}
-      {showCartPages && (<Cartpages orderPrice={orderPrice} qty={qty} name={name}/>)}
+      {showCartPages && (<Cartpages orderPrice={orderPrice} qty={qty} name={name} imgUrl={imgUrl}/>)}
     </div>
   );
 }

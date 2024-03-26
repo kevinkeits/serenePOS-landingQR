@@ -6,7 +6,7 @@ import Icondelete from '../assets/Icon/trash-bin-trash-svgrepo-com.svg'
 import Iconedit from '../assets/Icon/pencil-svgrepo-com.svg'
 import Productimage from '../assets/thumbnail/Cappucino.png'
 
-const Cartpages = ({orderPrice, qty, name}) => {
+const Cartpages = ({orderPrice, qty, name, imgUrl}) => {
   const [showProductPages, setShowProductPages] = useState(false);
   const [showOrderPages, setShowOrderPages] = useState(true);
   const [showCartPages, setShowCartPages] = useState(false);
@@ -49,7 +49,7 @@ const Cartpages = ({orderPrice, qty, name}) => {
                 </div>
                 <p className="font-semibold">Price: {orderPrice}</p>
               </div>
-              <img src={Productimage} alt="Image" className="w-20 h-20 rounded-sm" />
+              <img src={imgUrl} alt="Image" className="w-20 h-20 rounded-sm" />
             </div>
             <div className='flex justify-between mt-2'>
               <div className='flex gap-2 items-center border shadow-md rounded-xl px-2.5'>
