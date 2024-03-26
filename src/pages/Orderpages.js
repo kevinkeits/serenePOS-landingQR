@@ -41,6 +41,7 @@ const Orderpages = ({ selectedProduct }) => {
   const AddToCart = () => {
     setShowOrderPages(false);
     setShowCartPages(true);
+
   };
 
   const incrementQty = () => {
@@ -87,7 +88,7 @@ const Orderpages = ({ selectedProduct }) => {
         <div>
           <Header backtoHome={backtoHome} label={'Customize Order'} />
           <div className="flex flex-row items-center m-2">
-            <div className="grow px-2">
+            <div className="grow psx-2">
                 <p className="text-lg font-semibold">{name}</p>
             </div>
             <div className="inline-flex items-center py-1 pr-2">
@@ -139,7 +140,7 @@ const Orderpages = ({ selectedProduct }) => {
         </div>
       )}
       {showProductPages && (<Homepages  />)}
-      {showCartPages && (<Cartpages />)}
+      {showCartPages && (<Cartpages orderPrice={orderPrice} qty={qty} name={name}/>)}
     </div>
   );
 }

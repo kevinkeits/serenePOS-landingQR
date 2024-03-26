@@ -9,7 +9,7 @@ const Orderdetail = ({OrderPrice, OrderNotes, seledtedVarOp}) => {
     <div className='px-2 m-2 py-4 border rounded-xl shadow-sm'>
       <div className="flex items-center">
         <div className="grow">
-          <p className="font-semibold text-lg">Matcha latte</p>
+          <p className="font-semibold text-lg">Matcha</p>
           <div id="variant" className='inline-flex w-full gap-1'>
             <p className='font-semibold text-base'>Serve:</p>
             <label className='Var-Serve-Option'>Ice</label>
