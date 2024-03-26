@@ -1,17 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Homepages from './Homepages'
 import Header from '../components/Header'
-import axios from 'axios'
 import Icondelete from '../assets/Icon/trash-bin-trash-svgrepo-com.svg'
 import Iconedit from '../assets/Icon/pencil-svgrepo-com.svg'
-import Productimage from '../assets/thumbnail/Cappucino.png'
+import Orderpages from './Orderpages'
 
-const Cartpages = ({orderPrice, qty, name, imgUrl}) => {
+const Cartpages = ({orderPrice, qty, name, imgUrl, notes}) => {
   const [showProductPages, setShowProductPages] = useState(false);
-  const [showOrderPages, setShowOrderPages] = useState(true);
-  const [showCartPages, setShowCartPages] = useState(false);
-  const [products, setProducts] = useState([]);
+  const [showOrderPages, setShowOrderPages] = useState(false);
+  const [showCartPages, setShowCartPages] = useState(true);
   const [totalPrice, setTotalPrice] = useState(0);
+  
 
   const backtoHome = () => {
     setShowProductPages(true)
@@ -19,35 +18,22 @@ const Cartpages = ({orderPrice, qty, name, imgUrl}) => {
     setShowCartPages(false)
   }
 
-  useEffect(() => {
-    axios.get('https://serenepos.temandigital.id/api/scanOrder/get')
-      .then(response => {
-        setProducts(response.data.data);
-        const totalPrice = response.data.data.reduce((total, product) => {
-          return total + (product.price * product.quantity);
-        }, 0);
-        setTotalPrice(totalPrice);
-      })
-      .catch(error => {
-        console.error('Error:', error);
-      });
-  }, []);
-
   return (
     <div>
       {showProductPages && (<Homepages  />)}
-      {showCartPages && (<Cartpages />)}
-      {showOrderPages && (
-        <div className='max-w-md mx-auto h-screen'>
+      {showOrderPages && (<Orderpages  />)}
+      {showCartPages && (<div className='max-w-md mx-auto h-screen'>
           <Header backtoHome={backtoHome} label={'Cart'} />
           <div  className='px-2 m-2 py-4 border rounded-xl shadow-sm'>
             <div className="flex items-center">
               <div className="grow">
-                <p className="font-semibold text-lg">{name}</p>
+                <p className="font-bold text-lg">{name}</p>
+                <p className="font-semibold"></p>
                 <div id="variant" className='inline-flex w-full gap-1'>
                   <p className='font-semibold text-base'>Quantity: {qty}</p>
                 </div>
                 <p className="font-semibold">Price: {orderPrice}</p>
+                <p className="font-semibold">Notes: {notes}</p>
               </div>
               <img src={imgUrl} alt="Image" className="w-20 h-20 rounded-sm" />
             </div>
@@ -63,7 +49,7 @@ const Cartpages = ({orderPrice, qty, name, imgUrl}) => {
           {/* Notes */}
           <div className='sticky bg-white w-full rounded-lg mb-2'>
             <div className='py-2 mx-2'>
-              <p className='text-base font-semibold'>Notes</p>
+              <p className='text-base font-semibold'></p>
             </div>
             <div className='bg-white border shadow-sm rounded-md py-2 px-3 my-1 mx-2'>
               <textarea placeholder='Ex: Add more...' className='w-full h-32 border-gray-300 rounded-md focus:outline-none focus:border-blue-500 resize-none' />
@@ -87,9 +73,8 @@ const Cartpages = ({orderPrice, qty, name, imgUrl}) => {
             <p className='text-white font-semibold text-lg text-center'>Place Order</p>
           </div>
         </div>
-      )}
+        )}
     </div>
-    
   )
 }
 

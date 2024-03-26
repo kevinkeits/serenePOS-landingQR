@@ -14,6 +14,9 @@ const Orderpages = ({ selectedProduct }) => {
   const [variantList, setVariantList] = useState([]);
   const [variantCategory, setVariantCategory] = useState([]);
   const [selectedOptions, setSelectedOptions] = useState({});
+  const [currentVariantID, setcurrentVariantID] = useState(null);
+  const [notes, setNotes] = useState('');
+
 
   useEffect(() => {
     if (selectedProduct) {
@@ -57,6 +60,11 @@ const Orderpages = ({ selectedProduct }) => {
   const handleOptionChange = (category, value) => {
     setSelectedOptions({ ...selectedOptions, [category]: value });
   };
+
+  const handleNotesChange = (event) => {
+    setNotes(event.target.value);
+  };
+  
 
   const updateOrderPrice = () => {
     let totalVariantPrice = 0;
@@ -122,7 +130,20 @@ const Orderpages = ({ selectedProduct }) => {
             </div>
           ))}
 
-          <ProductNotes />
+          <div className="px-2 m-2 py-2">
+            <div className="py-2 mx-2">
+              <p className="text-base font-semibold">Notes</p>
+            </div>
+            <div className="bg-white border shadow-md rounded-md py-2 px-3 my-1 mx-2">
+            <textarea 
+                placeholder='Ex: Add more...' 
+                className='w-full h-32 border-gray-300 rounded-md focus:outline-none focus:border-blue-500 resize-none' 
+                value={notes} 
+                onChange={handleNotesChange}
+              />
+            </div>
+          </div>
+
           <div className="max-w-md mx-auto border-t-2 pt-4 pb-3 px-3">
             <div className="flex gap-2">
               <p className="font-medium text-base grow">Item Qty</p>
@@ -140,7 +161,15 @@ const Orderpages = ({ selectedProduct }) => {
         </div>
       )}
       {showProductPages && (<Homepages  />)}
-      {showCartPages && (<Cartpages orderPrice={orderPrice} qty={qty} name={name} imgUrl={imgUrl}/>)}
+      {showCartPages && (<Cartpages 
+        orderPrice={orderPrice} 
+        qty={qty} name={name} 
+        imgUrl={imgUrl} 
+        notes={notes} 
+        variantOptionID={selectedOptions[currentVariantID]}
+        variantName={groupedVariants[currentVariantID] && groupedVariants[currentVariantID].length > 0 ? groupedVariants[currentVariantID][0].name : ""}  
+        variantLabel={groupedVariants[currentVariantID] && groupedVariants[currentVariantID].length > 0 ? groupedVariants[currentVariantID][0].label : ""}/>
+      )}
     </div>
   );
 }
