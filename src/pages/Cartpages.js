@@ -72,7 +72,7 @@ const Cartpages = ({orderPrice, qty, name}) => {
 
           <div className='max-w-md mx-auto flex items-center justify-between my-2 px-2'>
             <p font-medium text-base>Need Anything else?</p>
-            <button className='border py-2 px-2 rounded-lg shadow-md mx-2 text-base font-medium'>Add More</button>
+            <button onClick={backtoHome} className='border py-2 px-2 rounded-lg shadow-md mx-2 text-base font-medium'>Add More</button>
           </div>
 
           <div className='border max-w-md mx-auto px-2 mt-3 mb-4 rounded-lg'>
