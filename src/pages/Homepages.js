@@ -7,6 +7,7 @@ import Orderpages from './Orderpages';
 import Cartpages from './Cartpages';
 import Product from '../components/Product';
 import NoImage from '../assets/thumbnail/No-Image-Placeholder.png'
+import Header from '../components/Header'
 
 const Homepages = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -24,16 +25,24 @@ const Homepages = () => {
     setShowOrderPages(true);
     setShowProductPages(false);
     setShowCartPages(false);
-   
     });
+  };
 
-    
+  const backtoHome = () => {
+    setShowProductPages(true)
+    setShowOrderPages(false)
+    setShowCartPages(false)
+  }
+
+  const AddToCart = () => {
+    setShowProductPages(false);
+    setShowOrderPages(false);
+    setShowCartPages(true);
   };
 
   useEffect(() => {
     axios.get('https://serenepos.temandigital.id/api/scanOrder/get')
       .then(respon => {
-        /* console.log(respon.data.data); */
         const Product = respon.data.data.map(product => ({
           ...product, 
           price: parseFloat(product.price).toFixed(0),
@@ -72,8 +81,18 @@ const Homepages = () => {
           ))}
         </div>
       )}
-      {showOrderPages && <Orderpages selectedProduct={selectedProduct} />}
-      {showCartPages && <Cartpages />}
+      {showOrderPages && (
+        <div>
+          <Header backtoHome={backtoHome} label={'Customize Order'} />
+          <Orderpages selectedProduct={selectedProduct} openCart={AddToCart} />
+        </div>
+      )}
+      {showCartPages && (
+        <div>
+          <Header backtoHome={backtoHome} label={'Cart'} />
+          <Cartpages />
+        </div>
+      )}
     </div>
   );
 };

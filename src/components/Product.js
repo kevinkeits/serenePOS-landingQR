@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Product = ({ customOrder, products}) => {
+const Product = ({ customOrder, products }) => {
   return (
     <div>
       {products.map((product, index) => (

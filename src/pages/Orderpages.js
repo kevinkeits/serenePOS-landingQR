@@ -1,20 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import ProductNotes from '../components/ProductNotes';
-import Header from '../components/Header';
-import Cartpages from './Cartpages';
-import Homepages from './Homepages';
 
-const Orderpages = ({ selectedProduct }) => {
-  const [showProductPages, setShowProductPages] = useState(false);
+const Orderpages = ({ selectedProduct, openCart }) => {
   const [showOrderPages, setShowOrderPages] = useState(true);
-  const [showCartPages, setShowCartPages] = useState(false);
   const [qty, setQty] = useState(1);
   const [orderPrice, setOrderPrice] = useState(selectedProduct ? selectedProduct.price : 0);
 
   const [variantList, setVariantList] = useState([]);
   const [variantCategory, setVariantCategory] = useState([]);
   const [selectedOptions, setSelectedOptions] = useState({});
-  const [currentVariantID, setcurrentVariantID] = useState(null);
   const [notes, setNotes] = useState('');
 
 
@@ -35,18 +28,6 @@ const Orderpages = ({ selectedProduct }) => {
     updateOrderPrice();
   }, [qty, selectedOptions]);
 
-  const backtoHome = () => {
-    setShowProductPages(true);
-    setShowOrderPages(false);
-    setShowCartPages(false);
-  };
-
-  const AddToCart = () => {
-    setShowOrderPages(false);
-    setShowCartPages(true);
-
-  };
-
   const incrementQty = () => {
     setQty(prevQty => prevQty + 1);
   };
@@ -64,7 +45,6 @@ const Orderpages = ({ selectedProduct }) => {
   const handleNotesChange = (event) => {
     setNotes(event.target.value);
   };
-  
 
   const updateOrderPrice = () => {
     let totalVariantPrice = 0;
@@ -84,7 +64,8 @@ const Orderpages = ({ selectedProduct }) => {
     return null;
   }
 
-  const { name, price, imgUrl } = selectedProduct.product;
+  const { name, price } = selectedProduct.product;
+
   const groupedVariants = {};
   variantCategory.forEach(variantID => {
     groupedVariants[variantID] = variantList.filter(variant => variant.variantID === variantID);
@@ -94,7 +75,6 @@ const Orderpages = ({ selectedProduct }) => {
     <div className='max-w-md mx-auto h-screen'>
       {showOrderPages && (
         <div>
-          <Header backtoHome={backtoHome} label={'Customize Order'} />
           <div className="flex flex-row items-center m-2">
             <div className="grow psx-2">
                 <p className="text-lg font-semibold">{name}</p>
@@ -152,7 +132,7 @@ const Orderpages = ({ selectedProduct }) => {
               <button onClick={incrementQty} className="bg-blue-600 rounded-lg text-white text-lg font-bold w-8 h-8">+</button>
             </div>  
             <div className="bg-blue-600 rounded-lg py-1 my-2 hover:cursor-pointer shadow-md">
-              <div onClick={AddToCart} className="bg-blue-600 rounded-lg my-2 hover:cursor-pointer flex items-start justify-center gap-2">
+              <div onClick={() => openCart(openCart)} className="bg-blue-600 rounded-lg my-2 hover:cursor-pointer flex items-start justify-center gap-2">
                 <p className="text-center text-white text-lg">Add To Cart -</p>
                 <p className="text-center text-white text-lg">{orderPrice}</p>
               </div>
@@ -160,16 +140,18 @@ const Orderpages = ({ selectedProduct }) => {
           </div>
         </div>
       )}
-      {showProductPages && (<Homepages  />)}
+      {/* {showProductPages && (<Homepages  />)}
       {showCartPages && (<Cartpages 
         orderPrice={orderPrice} 
-        qty={qty} name={name} 
+        qty={qty} 
+        name={name} 
         imgUrl={imgUrl} 
-        notes={notes} 
-        variantOptionID={selectedOptions[currentVariantID]}
-        variantName={groupedVariants[currentVariantID] && groupedVariants[currentVariantID].length > 0 ? groupedVariants[currentVariantID][0].name : ""}  
-        variantLabel={groupedVariants[currentVariantID] && groupedVariants[currentVariantID].length > 0 ? groupedVariants[currentVariantID][0].label : ""}/>
-      )}
+        notes={notes}
+        variantCategory={variantCategory} // Pass variant category
+        selectedOptions={selectedOptions}
+        variantList={variantList}
+        />
+      )} */}
     </div>
   );
 }
